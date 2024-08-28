@@ -12,6 +12,11 @@ public class StateMachine<T> where T : System.Enum
     private StateBase _currentState;
     public float timeToStartGame = 1f;
 
+    public StateBase CurrentState
+    {
+      get{ return _currentState;}
+    }
+
 
    public void Init()
    {
