@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace LostWordls.StateMachine {
+
 public class StateBase : MonoBehaviour
 {
-  public virtual void OnStateEnter(object o = null) {
+    public virtual void OnStateEnter(object o = null) {
         Debug.Log("OnStateEnter");
     }
     public virtual void OnStateStay(){
@@ -15,3 +17,4 @@ public class StateBase : MonoBehaviour
     }
 }
    
+}

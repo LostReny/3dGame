@@ -5,6 +5,8 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using NaughtyAttributes;
 
+namespace LostWordls.StateMachine {
+
 public class StateMachine<T> where T : System.Enum
 {
     
@@ -17,30 +19,43 @@ public class StateMachine<T> where T : System.Enum
       get{ return _currentState;}
     }
 
-
    public void Init()
    {
       dictionaryState = new Dictionary<T, StateBase>();
    }
 
-
-    public void RegisterStates(T typeEnum, StateBase state) 
-    {
-
-      dictionaryState.Add(typeEnum, state);
-       
-    }
-    
-    public void SwitchStates(T state)
+   public void RegisterStates(T typeEnum, StateBase state) 
    {
-      if (_currentState != null)
+      if(!dictionaryState.ContainsKey(typeEnum))
       {
-         _currentState.OnStateExit();
+         dictionaryState.Add(typeEnum, state);
+         Debug.Log($"State {typeEnum} registered successfully.");
       }
-
-      _currentState = dictionaryState[state];
-      if(_currentState != null){ _currentState.OnStateEnter();}
    }
+
+    
+      public void SwitchStates(T state)
+   {
+      if (dictionaryState.ContainsKey(state))
+      {
+         if (_currentState != null)
+         {
+               _currentState.OnStateExit();
+         }
+
+         _currentState = dictionaryState[state];
+         if (_currentState != null)
+         {
+               _currentState.OnStateEnter();
+         }
+         Debug.Log($"Switched to state: {state}");
+      }
+      else
+      {
+         Debug.LogError($"State {state} not found in dictionary.");
+      }
+   }
+
 
    public void Update()
    {
@@ -50,5 +65,6 @@ public class StateMachine<T> where T : System.Enum
       }
    }
 
+}
 
 }
