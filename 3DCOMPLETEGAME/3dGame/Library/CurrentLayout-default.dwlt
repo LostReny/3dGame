@@ -21,14 +21,20 @@ MonoBehaviour:
   m_ShowMode: 4
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Title: Inspector
   m_RootView: {fileID: 11}
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
   m_Title: Hierarchy
 =======
   m_Title: Game
 >>>>>>> parent of 92e0e6a (game manager e state machine works)
   m_RootView: {fileID: 2}
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
   m_MinSize: {x: 875, y: 542}
 =======
@@ -46,6 +52,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -501,6 +508,8 @@ MonoBehaviour:
   m_Enabled: 1
 =======
 >>>>>>> parent of 92f35c0 (update state machine)
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
   m_EditorHideFlags: 1
   m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -835,6 +844,7 @@ MonoBehaviour:
 <<<<<<< HEAD
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 642
     height: 433
   m_MinSize: {x: 200, y: 200}
@@ -849,11 +859,16 @@ MonoBehaviour:
   m_ActualView: {fileID: 21}
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
     width: 652
     height: 865
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
   m_Panes:
   - {fileID: 20}
@@ -902,12 +917,17 @@ MonoBehaviour:
   m_TitleContent:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Text: Hierarchy
     m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
 =======
     m_Text: Game
     m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
+=======
+    m_Text: Game
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     m_Text: Game
     m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
@@ -1022,6 +1042,7 @@ MonoBehaviour:
   m_Position:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 5.4484177, y: -163.62021, z: 109.08844}
     speed: 2
     m_Value: {x: 5.4484177, y: -163.62021, z: 109.08844}
@@ -1030,6 +1051,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -2.049536, y: 0.2873342, z: 0.38211536}
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
+=======
+    m_Target: {x: 404.77576, y: -2.328411, z: 47.30653}
+    speed: 2
+    m_Value: {x: 404.77576, y: -2.328411, z: 47.30653}
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     m_Target: {x: 404.77576, y: -2.328411, z: 47.30653}
     speed: 2
@@ -1085,6 +1111,7 @@ MonoBehaviour:
     speed: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
 =======
     m_Value: {x: -0.01576895, y: 0.9838074, z: -0.13995428, w: -0.11084777}
@@ -1102,6 +1129,13 @@ MonoBehaviour:
     m_Value: 16.792707
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
 =======
+    m_Value: 17.208744
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
+    m_Value: {x: -0.01576895, y: 0.9838074, z: -0.13995428, w: -0.11084777}
+  m_Size:
+    m_Target: 17.208744
+    speed: 2
     m_Value: 17.208744
 >>>>>>> parent of 92f35c0 (update state machine)
   m_Ortho:
@@ -1130,7 +1164,10 @@ MonoBehaviour:
   m_ViewIsLockedToObject: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
 >>>>>>> parent of 92f35c0 (update state machine)
 --- !u!114 &18
@@ -1150,7 +1187,11 @@ MonoBehaviour:
   m_TitleContent:
     m_Text: Hierarchy
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
+=======
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
 >>>>>>> parent of 92f35c0 (update state machine)
@@ -1166,11 +1207,14 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: 368dffff
       m_LastClickedID: -29386
       m_ExpandedIDs: 40e3ffff26e6ffffd8eaffff00ebffff96f1ffffcaf2ffffeaf2fffffef2ffff26f3ffff3af3ffff62f3ffff72fbffff
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
       m_SelectedIDs: 0a410000
       m_LastClickedID: 16650
       m_ExpandedIDs: 72fbffff
@@ -1179,6 +1223,9 @@ MonoBehaviour:
       m_LastClickedID: 0
       m_ExpandedIDs: 88f0ffff72fbffff
 >>>>>>> parent of 92e0e6a (game manager e state machine works)
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1220,7 +1267,11 @@ MonoBehaviour:
   m_TitleContent:
     m_Text: Project
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
+=======
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
 >>>>>>> parent of 92f35c0 (update state machine)
@@ -1246,7 +1297,11 @@ MonoBehaviour:
     m_SearchArea: 1
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Scripts/LostWorlds/Singleton
+=======
+    - Assets/Scenes
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     - Assets/Scenes
 >>>>>>> parent of 92f35c0 (update state machine)
@@ -1256,7 +1311,11 @@ MonoBehaviour:
   m_StartGridSize: 16
   m_LastFolders:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Assets/Scripts/LostWorlds/Singleton
+=======
+  - Assets/Scenes
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
   - Assets/Scenes
 >>>>>>> parent of 92f35c0 (update state machine)
@@ -1267,6 +1326,7 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: 60460000
     m_LastClickedID: 18016
     m_ExpandedIDs: 000000004c4600004e4600005046000052460000544600005e4600000a4e0000764e000000ca9a3b
@@ -1276,6 +1336,8 @@ MonoBehaviour:
       m_OriginalName: Plugins
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
     m_SelectedIDs: 70460000
     m_LastClickedID: 18032
     m_ExpandedIDs: 000000004c4600004e460000504600005246000000ca9a3b
@@ -1288,6 +1350,9 @@ MonoBehaviour:
       m_UserAcceptedRename: 0
       m_Name: 
       m_OriginalName: 
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
       m_EditFieldRect:
         serializedVersion: 2
@@ -1296,6 +1361,7 @@ MonoBehaviour:
         width: 0
         height: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_UserData: 18008
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
@@ -1303,12 +1369,17 @@ MonoBehaviour:
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
       m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
     m_SearchString: 
     m_CreateAssetUtility:
@@ -1325,7 +1396,12 @@ MonoBehaviour:
     m_ExpandedIDs: 000000004c4600004e4600005046000052460000
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 000000004c4600004e4600005046000052460000
+=======
+    m_ExpandedIDs: 0000000050460000524600005446000056460000
+>>>>>>> parent of 92e0e6a (game manager e state machine works)
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     m_ExpandedIDs: 0000000050460000524600005446000056460000
 >>>>>>> parent of 92e0e6a (game manager e state machine works)
@@ -1357,7 +1433,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 0
+=======
+    m_HadKeyboardFocusLastEvent: 1
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
     m_HadKeyboardFocusLastEvent: 1
 >>>>>>> parent of 92f35c0 (update state machine)
@@ -1390,7 +1470,10 @@ MonoBehaviour:
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
 >>>>>>> parent of 92f35c0 (update state machine)
 --- !u!114 &20

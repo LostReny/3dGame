@@ -16,17 +16,23 @@ D:/GAME/EBAC_UNITY_3D/3dGame/3DCOMPLETEGAME/3dGame
 Logs/AssetImportWorker0.log
 -srvPort
 <<<<<<< HEAD
+<<<<<<< HEAD
 60006
 Successfully changed project path to: D:/GAME/EBAC_UNITY_3D/3dGame/3DCOMPLETEGAME/3dGame
 D:/GAME/EBAC_UNITY_3D/3dGame/3DCOMPLETEGAME/3dGame
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 26.76 ms, found 2 plugins.
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 52695
 Successfully changed project path to: D:/GAME/EBAC_UNITY_3D/3dGame/3DCOMPLETEGAME/3dGame
 D:/GAME/EBAC_UNITY_3D/3dGame/3DCOMPLETEGAME/3dGame
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 22.89 ms, found 2 plugins.
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.29f1 (2ff179115da0)
@@ -44,6 +50,7 @@ Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Manage
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/MonoBleedingEdge/etc'
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56988
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -58,6 +65,8 @@ Domain Reload Profiling:
 	ReloadAssembly (464ms)
 		BeginReloadAssembly (54ms)
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56164
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -71,12 +80,16 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (421ms)
 		BeginReloadAssembly (48ms)
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< HEAD
 <<<<<<< HEAD
 		EndReloadAssembly (355ms)
 			LoadAssemblies (53ms)
@@ -93,6 +106,8 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (71ms)
 				ProcessInitializeOnLoadMethodAttributes (19ms)
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 		EndReloadAssembly (322ms)
 			LoadAssemblies (48ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -107,6 +122,9 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (11ms)
 				ProcessInitializeOnLoadAttributes (60ms)
 				ProcessInitializeOnLoadMethodAttributes (20ms)
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -114,6 +132,7 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 <<<<<<< HEAD
 Registered in 0.001537 seconds.
 Begin MonoManager ReloadAssembly
@@ -126,6 +145,8 @@ Domain Reload Profiling:
 	ReloadAssembly (910ms)
 		BeginReloadAssembly (107ms)
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 Registered in 0.001563 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -136,11 +157,15 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (675ms)
 		BeginReloadAssembly (98ms)
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 <<<<<<< HEAD
 			CreateAndSetChildDomain (15ms)
 		EndReloadAssembly (760ms)
@@ -157,6 +182,8 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (89ms)
 				ProcessInitializeOnLoadAttributes (137ms)
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 			CreateAndSetChildDomain (12ms)
 		EndReloadAssembly (541ms)
 			LoadAssemblies (61ms)
@@ -171,11 +198,15 @@ Domain Reload Profiling:
 				RefreshPlugins (0ms)
 				BeforeProcessingInitializeOnLoad (68ms)
 				ProcessInitializeOnLoadAttributes (130ms)
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 				ProcessInitializeOnLoadMethodAttributes (6ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
+<<<<<<< HEAD
 <<<<<<< HEAD
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
@@ -184,12 +215,17 @@ Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
 Refreshing native plugins compatible for Editor in 0.26 ms, found 2 plugins.
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
 Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1631 Unused Serialized files (Serialized files now loaded: 0)
@@ -198,7 +234,11 @@ System memory in use after: 71.9 MB.
 
 Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2070.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Total: 1.935000 ms (FindLiveObjects: 0.089300 ms CreateObjectMapping: 0.033400 ms MarkObjects: 1.736900 ms  DeleteObjects: 0.074500 ms)
+=======
+Total: 1.708500 ms (FindLiveObjects: 0.079800 ms CreateObjectMapping: 0.025900 ms MarkObjects: 1.558300 ms  DeleteObjects: 0.044000 ms)
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
 Total: 1.708500 ms (FindLiveObjects: 0.079800 ms CreateObjectMapping: 0.025900 ms MarkObjects: 1.558300 ms  DeleteObjects: 0.044000 ms)
 >>>>>>> parent of 92f35c0 (update state machine)
@@ -215,6 +255,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< HEAD
 <<<<<<< HEAD
   path: Assets/Scripts/LostWorlds/State Machine/StateMachine.cs
   artifactKey: Guid(201d815e24464db43b8d140550ed0aec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -1629,6 +1670,8 @@ Received Import Request.
 Start importing Assets/Scripts/LostWorlds/State Machine/StateMachineEditor.cs using Guid(431a9e832152d304c8ec27178ac308fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6e10b7c58f867582ac62bf8e1dc85cf') in 0.053782 seconds 
   Import took 0.056043 seconds .
 =======
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
   path: Assets/Scenes
   artifactKey: Guid(3437ca7ad0859704090585e39733c126) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes using Guid(3437ca7ad0859704090585e39733c126) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc57c1f2b0378f34a8e0f2a1a353d2ef') in 0.087320 seconds 
@@ -1641,6 +1684,9 @@ Received Import Request.
   artifactKey: Guid(b4499d71afb36e2489b0f4a765243299) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Character.unity using Guid(b4499d71afb36e2489b0f4a765243299) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '342a9d6124948f8ade6e8a72cda8d5b2') in 0.069055 seconds 
   Import took 0.071162 seconds .
+<<<<<<< HEAD
+>>>>>>> parent of 92f35c0 (update state machine)
+=======
 >>>>>>> parent of 92f35c0 (update state machine)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

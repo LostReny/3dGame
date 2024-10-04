@@ -8,13 +8,20 @@ EditorUserSettings:
     RecentlyUsedScenePath-0:
 <<<<<<< HEAD
       value: 22424703114646680e0b0227036c6c111b07142f1f2b233e2867083debf42d
+<<<<<<< HEAD
 =======
       value: 22424703114646680e0b0227036c6c333828393838177414633c133af6f9
+=======
+      flags: 0
+    RecentlyUsedScenePath-1:
+      value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
+>>>>>>> parent of 92f35c0 (update state machine)
       flags: 0
     RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
       flags: 0
+<<<<<<< HEAD
     RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
       flags: 0
@@ -32,6 +39,8 @@ EditorUserSettings:
       value: 22424703114646680e0b0227036c7c1817051929382d347e38271427fb
 >>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
       flags: 0
+=======
+>>>>>>> parent of 92f35c0 (update state machine)
 =======
 >>>>>>> parent of 92f35c0 (update state machine)
     vcSharedLogLevel:
