@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LostWordls.StateMachine {
 
-public class StateBase : MonoBehaviour
+public class StateBase
 {
     public virtual void OnStateEnter(object o = null) {
         Debug.Log("OnStateEnter");
