@@ -6,49 +6,17 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
-<<<<<<< HEAD
       value: 22424703114646680e0b0227036c6c111b07142f1f2b233e2867083debf42d
-<<<<<<< HEAD
-=======
+      flags: 0
+    RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c6c333828393838177414633c133af6f9
-=======
-      flags: 0
-    RecentlyUsedScenePath-1:
-      value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
-<<<<<<< HEAD
->>>>>>> parent of 92f35c0 (update state machine)
-=======
->>>>>>> parent of 92f35c0 (update state machine)
-      flags: 0
-    RecentlyUsedScenePath-1:
-      value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
->>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
-      flags: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    RecentlyUsedScenePath-1:
-      value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
       flags: 0
     RecentlyUsedScenePath-2:
-<<<<<<< HEAD
       value: 22424703114646680e0b0227036c7c1817051929382d347e38271427fb
       flags: 0
-<<<<<<< HEAD
     RecentlyUsedScenePath-3:
       value: 22424703114646680e0b0227036c6c333828393838177514633c133af6f9
-=======
-      value: 22424703114646680e0b0227036c6c111b07142f1f2b233e2867083debf42d
       flags: 0
-    RecentlyUsedScenePath-3:
-      value: 22424703114646680e0b0227036c7c1817051929382d347e38271427fb
->>>>>>> parent of 490adf2 (Revert "Update_state_mchine")
-      flags: 0
-=======
->>>>>>> parent of 92f35c0 (update state machine)
-=======
->>>>>>> parent of 92f35c0 (update state machine)
-=======
->>>>>>> parent of 92f35c0 (update state machine)
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
