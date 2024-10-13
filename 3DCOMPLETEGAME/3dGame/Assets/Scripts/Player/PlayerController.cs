@@ -4,93 +4,88 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    public float runSpeed;
-    public float jumpForce = 7f;
-    private float initialSpeed; 
+    [Header("Animator")]
+    public Animator animator;
 
-    private Rigidbody rb;
-    private bool isGrounded = true;
+    [Header("Movement")]
+    public CharacterController characterController;
+    public float speed = 1.0f;
+    public float turnSpeed = 1.0f;
+    public float gravity = -9f;
 
-    private Vector3 direction;
-    private bool isRunning;
-    private bool isJumping;
+    [Header("Jump")]
+    public float jumpSpeed = 15f;
+    public KeyCode jumpKeyCode = KeyCode.Space;
 
-    void Start()
+    [Header("Run")]
+    public float runSpeed = 1.5f ;
+    public KeyCode runKeyCode = KeyCode.LeftShift;
+
+    private float vSpeed = 0f;
+
+    private void Update()
     {
-        rb = GetComponent<Rigidbody>();
-
-        initialSpeed = speed;
-        
+        OnMove();
     }
 
-    void Update()
+    #region movement
+    public void OnMove()
     {
-        Inputs(); 
-    }
+        transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0);
 
-    public void Inputs()
-    {
-       
-        direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        var inputAxisVertical = Input.GetAxis("Vertical");
+        var speedVector = transform.forward * inputAxisVertical * speed;
 
-        
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        OnJump();
+
+        vSpeed -= gravity * Time.deltaTime;
+        speedVector.y = vSpeed;
+
+        characterController.Move(speedVector * Time.deltaTime);
+
+        // run e animação
+        var isWalking = inputAxisVertical != 0;
+        if (isWalking)
         {
-            isJumping = true;
+            if (Input.GetKey(runKeyCode)) 
+            { 
+                speedVector *= runSpeed;
+                animator.speed = runSpeed;
+            }
+            else 
+            {
+                animator.speed = 1;
+            }
         }
 
-       
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+
+        // animação
+        if(inputAxisVertical != 0)
         {
-            Run();
+            animator.SetBool("Run", true);
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        else
         {
-            StopRunning();
+            animator.SetBool("Run", false);
         }
+
+
     }
+    #endregion
 
-    void FixedUpdate()
+    #region jump
+    public void OnJump()
     {
-        Walk();
-
-        if (isJumping)
+        if (characterController.isGrounded)
         {
-            Jump();
-            isJumping = false; 
-        }
-    }
-
-    public void Walk()
-    {
-        Vector3 newPosition = rb.position + direction * speed * Time.fixedDeltaTime; 
-        rb.MovePosition(newPosition);
-    }
-
-    public void Jump()
-    {
-        rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse); 
-        isGrounded = false;
-    }
-
-    public void Run()
-    {
-        speed = runSpeed;
-        isRunning = true;
-    }
-
-    public void StopRunning()
-    {
-        speed = initialSpeed; 
-        isRunning = false;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true; 
+            vSpeed = 0;
+            if (Input.GetKeyDown(jumpKeyCode))
+            {
+                vSpeed = jumpSpeed;
+            }
         }
     }
+    #endregion
+
+   
 }

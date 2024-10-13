@@ -7,10 +7,10 @@ using UnityEditor;
 [CustomEditor(typeof(FSMExample))]
 public class StateMachineEditor : Editor
 {
-    public bool showFoldout; 
+    public bool showFoldout;
 
-   public override void OnInspectorGUI()
-   {
+    public override void OnInspectorGUI()
+    {
         base.OnInspectorGUI();
 
         FSMExample fsm = (FSMExample)target;
@@ -18,27 +18,27 @@ public class StateMachineEditor : Editor
         EditorGUILayout.Space(30);
         EditorGUILayout.LabelField("State Machine");
 
-        if(fsm.stateMachine == null) return;
+        if (fsm.stateMachine == null) return;
 
-        if(fsm.stateMachine.CurrentState != null)
+        if (fsm.stateMachine.CurrentState != null)
         {
             EditorGUILayout.LabelField("Current State: ", fsm.stateMachine.CurrentState.ToString());
         }
 
         showFoldout = EditorGUILayout.Foldout(showFoldout, "Available States");
 
-        if(showFoldout)
+        if (showFoldout)
         {
-            if(fsm.stateMachine.dictionaryState != null)
+            if (fsm.stateMachine.dictionaryState != null)
             {
                 var Keys = fsm.stateMachine.dictionaryState.Keys.ToArray();
                 var vals = fsm.stateMachine.dictionaryState.Values.ToArray();
 
-                for(int i = 0; i < Keys.Length; i++ )
+                for (int i = 0; i < Keys.Length; i++)
                 {
                     EditorGUILayout.LabelField(string.Format("{0} :: {1}", Keys[i], vals[i]));
                 }
             }
         }
-   }
+    }
 }

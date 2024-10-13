@@ -18,7 +18,7 @@ public class GameManagerEditor : Editor
         EditorGUILayout.Space(30);
         EditorGUILayout.LabelField("State Machine");
 
-        if (fsm.stateMachine == null) 
+        if (fsm.stateMachine == null)
         {
             Debug.LogWarning("StateMachine is null in GameManager.");
             return;

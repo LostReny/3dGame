@@ -6,51 +6,40 @@ using LostWordls.StateMachine;
 
 public class GameManager : Singleton<GameManager>
 {
-   public enum GameStates
-   {
-        WALK,
-        RUN,
-        JUMP
-   }
+    public enum GameStates
+    {
+        INTRO,
+        GAMEPLAY,
+        PAUSE,
+        WIN,
+        LOSE
+    }
 
-   public StateMachine<GameStates> stateMachine;
-   
+    public StateMachine<GameStates> stateMachine;
 
 
-   private void Start()
-   {
+    private void Start()
+    {
         Init();
-   }
+    }
 
-   public void Init()
-   {
+    public void Init()
+    {
         stateMachine = new StateMachine<GameStates>();
 
         stateMachine.Init();
-        stateMachine.RegisterStates(GameStates.WALK, new GMStateWalk());
-        stateMachine.RegisterStates(GameStates.RUN, new GMStateRun());
-        stateMachine.RegisterStates(GameStates.JUMP, new GMStateJump());
-        
-        stateMachine.SwitchStates(GameStates.WALK);
+        stateMachine.RegisterStates(GameStates.INTRO, new GMStateIntro());
+        stateMachine.RegisterStates(GameStates.GAMEPLAY, new StateBase());
+        stateMachine.RegisterStates(GameStates.PAUSE, new StateBase());
+        stateMachine.RegisterStates(GameStates.WIN, new StateBase());
+        stateMachine.RegisterStates(GameStates.LOSE, new StateBase());
 
-   }
+        stateMachine.SwitchStates(GameStates.INTRO);
 
-     private void Update()
+    }
+
+    public void InitGame()
     {
-        
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            stateMachine.SwitchStates(GameStates.WALK);
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            stateMachine.SwitchStates(GameStates.JUMP);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            stateMachine.SwitchStates(GameStates.RUN);
-        }
 
-        stateMachine.Update();
     }
 }
