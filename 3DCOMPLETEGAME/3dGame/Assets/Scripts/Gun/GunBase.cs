@@ -10,17 +10,8 @@ public class GunBase : MonoBehaviour
 
 
     private Coroutine _currentCoroutine;
-
-    private void Update() {
-        if(Input.GetMouseButtonDown(0)){
-            _currentCoroutine = StartCoroutine(StartShoot());
-        }
-        else if(Input.GetMouseButtonUp(0)){
-            if(_currentCoroutine != null) StopCoroutine(_currentCoroutine);
-        }
-    }
     
-    IEnumerator StartShoot() {
+    protected virtual IEnumerator StartShoot() {
         while(true){
             Shoot();
             yield return new WaitForSeconds(timeBetweenShoot);
@@ -33,5 +24,14 @@ public class GunBase : MonoBehaviour
         projectile.transform.rotation = positionProjectile.rotation;
     }
 
+    public void StartShooting()
+    {
+        CancelShooting();
+        _currentCoroutine = StartCoroutine(StartShoot());
+    }
 
+    public void CancelShooting()
+    {
+        if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
+    }
 }
