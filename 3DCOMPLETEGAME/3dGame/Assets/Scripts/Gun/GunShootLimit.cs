@@ -60,6 +60,7 @@ public class GunShootLimit : GunBase
         while (time < timeToRecharge) 
         {
             time += Time.deltaTime;
+            gunUpdaters.ForEach(i => i.UpdateValue(time/timeToRecharge));
             yield return new WaitForEndOfFrame();
         }
         _currentShoots = 0;

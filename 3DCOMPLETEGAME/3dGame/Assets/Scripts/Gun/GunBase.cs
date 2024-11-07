@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GunBase : MonoBehaviour
@@ -35,4 +36,5 @@ public class GunBase : MonoBehaviour
     {
         if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
     }
+
 }
