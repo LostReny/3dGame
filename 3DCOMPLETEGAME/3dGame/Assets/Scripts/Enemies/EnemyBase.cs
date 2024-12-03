@@ -6,9 +6,9 @@ using Animation;
 
 namespace Enemy
 {
-    public class EnemyBase : MonoBehaviour
+    public class EnemyBase : MonoBehaviour, IDamagable
     {
-
+        public Collider _collider;
         public float startLife = 10f;
 
         [SerializeField] private float _currentLife;
@@ -50,6 +50,7 @@ namespace Enemy
 
         protected virtual void OnKill()
         {
+            if (_collider != null) _collider.enabled = false;
             Destroy(gameObject, 3f);
             PlayAnimationByTrigger(AnimationType.DEATH);
         }
@@ -80,12 +81,19 @@ namespace Enemy
 
         #endregion
 
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.T)){
-            OnDamage(5f);
+        public void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.T)){
+                OnDamage(5f);
+            }
         }
-    }
+
+
+        public void Damage(float damage)
+        {
+            OnDamage(damage);
+        }
+
     }
 
 }
