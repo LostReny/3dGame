@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8226089464044131295}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameObject_G1
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -129,5 +129,6 @@ MonoBehaviour:
   positionProjectile: {fileID: 8226089464044131295}
   timeBetweenShoot: 0.3
   speed: 50
+  gunUpdaters: []
   maxShoot: 5
   timeToRecharge: 1

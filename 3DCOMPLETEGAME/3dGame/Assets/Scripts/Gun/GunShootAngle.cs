@@ -21,10 +21,14 @@ public class GunShootAngle : GunShootLimit
 
             var projectile = Instantiate(prefabProjectile, positionProjectile);
 
+            Debug.Log($"Projétil criado na posição: {projectile.transform.position}, Rotação: {projectile.transform.rotation}");
+
             projectile.transform.localPosition = Vector3.zero;
             projectile.transform.localEulerAngles = Vector3.zero + Vector3.up * (i%2 == 0 ? shootAngle : -shootAngle) * mult;
             projectile.speed = speed;
             projectile.transform.parent = null;
         }
     }
+
+    
 }
