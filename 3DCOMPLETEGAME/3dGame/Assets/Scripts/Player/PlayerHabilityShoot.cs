@@ -16,6 +16,7 @@ public class PlayerHabilityShoot : PlayerHabilityBase
     public GunShootAngle weapon2;
 
     private GunBase _currentGun;
+    private bool _isShooting;
 
     protected override void Init()
     {
@@ -62,13 +63,17 @@ public class PlayerHabilityShoot : PlayerHabilityBase
 
     private void StartShoot()
     {
+        if(_isShooting) return;
+        _isShooting = true;
         _currentGun.StartShooting();
-        Debug.Log("Shoot");
+        Debug.Log("Shoot Started");
     }
 
     private void CancelShoot()
     {
+        if(!_isShooting) return;
+        _isShooting = false;
         _currentGun.CancelShooting();
-        Debug.Log("Cancel Shoot");
+        Debug.Log("Canceled Shoot");
     }
 }
