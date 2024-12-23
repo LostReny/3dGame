@@ -22,7 +22,15 @@ public class ProjectileBase : MonoBehaviour
     {
         var damagable = collision.transform.GetComponent<IDamagable>();
 
-        if (damagable != null) damagable.Damage(damageAmount);
+        if (damagable != null) 
+        {
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            dir.y = 0;
+
+            damagable.Damage(damageAmount, dir);
+
+        }
 
         Destroy(gameObject);
     }
