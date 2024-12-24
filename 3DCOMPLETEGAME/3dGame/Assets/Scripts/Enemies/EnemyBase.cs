@@ -102,6 +102,16 @@ namespace Enemy
             transform.DOMove(transform.position - dir, .1f);
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+             PlayerController p = collision.transform.GetComponent<PlayerController>();
+
+            if (p != null) 
+            {
+                p.Damage(1);
+            }
+        }
+
     }
 
 }

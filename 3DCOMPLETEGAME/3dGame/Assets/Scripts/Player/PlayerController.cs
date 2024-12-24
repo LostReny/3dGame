@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamagable
 {
     [Header("Animator")]
     public Animator animator;
@@ -18,10 +18,13 @@ public class PlayerController : MonoBehaviour
     public KeyCode jumpKeyCode = KeyCode.Space;
 
     [Header("Run")]
-    public float runSpeed = 1.5f ;
+    public float runSpeed = 1.5f;
     public KeyCode runKeyCode = KeyCode.LeftShift;
 
     private float vSpeed = 0f;
+
+    [Header("Flash")]
+    public List<FlashColor> flashColors;
 
     private void Update()
     {
@@ -47,12 +50,12 @@ public class PlayerController : MonoBehaviour
         var isWalking = inputAxisVertical != 0;
         if (isWalking)
         {
-            if (Input.GetKey(runKeyCode)) 
-            { 
+            if (Input.GetKey(runKeyCode))
+            {
                 speedVector *= runSpeed;
                 animator.speed = runSpeed;
             }
-            else 
+            else
             {
                 animator.speed = 1;
             }
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
 
         // animação
-        if(inputAxisVertical != 0)
+        if (inputAxisVertical != 0)
         {
             animator.SetBool("Run", true);
         }
@@ -87,5 +90,15 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-   
+    #region Life
+    public void Damage(float damage)
+    {
+        flashColors.ForEach(i => i.Flash());
+    }
+
+    public void Damage(float damage, Vector3 dir)
+    {
+
+    }
+    #endregion
 }
