@@ -10,6 +10,7 @@ namespace Enemy
     {
         public Collider _collider;
         public float startLife = 10f;
+        public bool lookAtPlayer = false; 
 
         public FlashColor _flashColor;
         public ParticleSystem _particleSystem;
@@ -26,9 +27,19 @@ namespace Enemy
         public Ease startAnimationEase = Ease.OutBack;
         public bool startWithBornAnimation = true;
 
+
+        private PlayerController _playerController;
+
+
         private void Awake()
         {
             Init();
+        }
+
+
+        private void Start()
+        {
+            _playerController = GameObject.FindObjectOfType<PlayerController>();
         }
 
         protected virtual void ResetLife()
@@ -74,6 +85,13 @@ namespace Enemy
             }
         }
 
+        public virtual void Update()
+        {
+            if(lookAtPlayer) 
+            {
+                transform.LookAt(_playerController.transform.position);
+            }
+        }
 
         #region Animations
 

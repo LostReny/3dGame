@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
         characterController.Move(speedVector * Time.deltaTime);
 
-        // run e animação
+        // run e animaï¿½ï¿½o
         var isWalking = inputAxisVertical != 0;
         if (isWalking)
         {
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
 
 
-        // animação
+        // animaï¿½ï¿½o
         if (inputAxisVertical != 0)
         {
             animator.SetBool("Run", true);
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     public void Damage(float damage, Vector3 dir)
     {
-
+        Damage(damage);
     }
     #endregion
 }
