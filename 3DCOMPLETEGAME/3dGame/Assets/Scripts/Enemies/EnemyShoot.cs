@@ -17,6 +17,12 @@ namespace Enemy
             gunBase.StartShooting();
         }
 
+        protected override void OnKill()
+        {
+            base.OnKill();
+
+            gunBase.CancelShooting();
+        }
 
     }
 

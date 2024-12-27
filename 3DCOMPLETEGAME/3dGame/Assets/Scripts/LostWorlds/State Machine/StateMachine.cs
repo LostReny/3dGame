@@ -35,7 +35,7 @@ namespace LostWordls.StateMachine
         }
 
 
-        public void SwitchStates(T state)
+        public void SwitchStates(T state, params object[] objs)
         {
             if (dictionaryState.ContainsKey(state))
             {
@@ -47,7 +47,7 @@ namespace LostWordls.StateMachine
                 _currentState = dictionaryState[state];
                 if (_currentState != null)
                 {
-                    _currentState.OnStateEnter();
+                    _currentState.OnStateEnter(objs);
                 }
                 Debug.Log($"Switched to state: {state}");
             }
