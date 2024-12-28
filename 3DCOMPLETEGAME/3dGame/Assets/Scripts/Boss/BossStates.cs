@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 using LostWordls.StateMachine;
 
 
@@ -25,7 +26,7 @@ namespace Boss
             base.OnStateEnter(objs);
             boss.StartInitAnimaition();
 
-            Debug.Log("Boss" + boss);
+            UnityEngine.Debug.Log("Boss" + boss);
         }
     }
 
@@ -34,7 +35,12 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            boss.GoToRandomPoint();
+            boss.GoToRandomPoint(OnArrive);
+        }
+
+        private void OnArrive()
+        {
+            boss.SwitchState(BossAction.ATTACK);
         }
     }
 
@@ -43,7 +49,12 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            
+            boss.StartAttack(EndAttacks);
+        }
+
+        private void EndAttacks()
+        {
+            boss.SwitchState(BossAction.WALK);
         }
     }
 

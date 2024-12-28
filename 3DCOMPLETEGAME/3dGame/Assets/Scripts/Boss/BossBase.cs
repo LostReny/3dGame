@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,20 +53,22 @@ namespace Boss
 
         #region COROUTINE ATTACK
 
-        public void StartAttack()
+        public void StartAttack(Action endCallback = null)
         {
-
+            StartCoroutine(AttackCoroutine(endCallback));
         }
 
-        IEnumerator AttackCoroutine()
+        IEnumerator AttackCoroutine(Action endCallBack)
         {
             int attacks = 0;
             while(attacks < attackAmount)
             {
                 attacks++;
-                //transform.DOScale(1.1f, .1f).setter
-                yield return new WaitForEndOfFrame();
+                transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
+                yield return new WaitForSeconds(timeBtwAttacks);
             }
+
+            if(endCallBack != null) endCallBack.Invoke();
         }
 
         #endregion
@@ -73,18 +76,20 @@ namespace Boss
 
         #region COROUTINE WALK
 
-        public void GoToRandomPoint()
+        public void GoToRandomPoint(Action onArrive = null)
         {
-            StartCoroutine(GoToPointCoroutine(waypoints[Random.Range(0, waypoints.Count)]));
+            StartCoroutine(GoToPointCoroutine(waypoints[UnityEngine.Random.Range(0, waypoints.Count)], onArrive));
         }
 
-        IEnumerator GoToPointCoroutine(Transform t)
+        IEnumerator GoToPointCoroutine(Transform t, Action onArrive = null)
         {
             while(Vector3.Distance(transform.position, t.position) > 1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, t.position, Time.deltaTime * speed);
                 yield return new WaitForEndOfFrame();
             }
+
+            if(onArrive !=  null) onArrive.Invoke();
         }
 
         #endregion
