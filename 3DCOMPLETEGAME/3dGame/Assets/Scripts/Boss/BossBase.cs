@@ -23,6 +23,10 @@ namespace Boss
         public float startAnimationDuration = .5f;
         public Ease startAnimationEase = Ease.OutBack;
 
+        [Header("Attack")]
+        public int attackAmount = 5;
+        public float timeBtwAttacks = .5f;
+
 
         public float speed = 5f;
         public List<Transform> waypoints;
@@ -42,10 +46,32 @@ namespace Boss
 
             stateMachine.RegisterStates(BossAction.INIT, new BossStateInit());
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
+            stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
         }
 
 
-        #region COROUTINE
+        #region COROUTINE ATTACK
+
+        public void StartAttack()
+        {
+
+        }
+
+        IEnumerator AttackCoroutine()
+        {
+            int attacks = 0;
+            while(attacks < attackAmount)
+            {
+                attacks++;
+                //transform.DOScale(1.1f, .1f).setter
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        #endregion
+
+
+        #region COROUTINE WALK
 
         public void GoToRandomPoint()
         {
@@ -85,6 +111,12 @@ namespace Boss
         private void SwitchWalk()
         {
             SwitchState(BossAction.WALK);
+        }
+        
+        [NaughtyAttributes.Button]
+        private void SwitchAttack()
+        {
+            SwitchState(BossAction.ATTACK);
         }
 
         #endregion   

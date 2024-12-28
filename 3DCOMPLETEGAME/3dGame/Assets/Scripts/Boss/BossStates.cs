@@ -38,5 +38,14 @@ namespace Boss
         }
     }
 
+    public class BossStateAttack : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
+            
+        }
+    }
+
 }
    
