@@ -30,7 +30,7 @@ namespace LostWordls.StateMachine
             if (!dictionaryState.ContainsKey(typeEnum))
             {
                 dictionaryState.Add(typeEnum, state);
-                Debug.Log($"State {typeEnum} registered successfully.");
+                //Debug.Log($"State {typeEnum} registered successfully.");
             }
         }
 

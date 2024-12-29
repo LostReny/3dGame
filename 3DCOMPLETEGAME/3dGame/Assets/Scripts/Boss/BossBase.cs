@@ -14,7 +14,8 @@ namespace Boss
         INIT,
         IDLE, 
         WALK,
-        ATTACK
+        ATTACK,
+        DEATH
     }
 
     public class BossBase : MonoBehaviour
@@ -32,23 +33,41 @@ namespace Boss
         public float speed = 5f;
         public List<Transform> waypoints;
 
+        public bool useTrigger = true;
+        private bool isActive = false;
+
+        public HealthBase healthBase;
+
         private StateMachine<BossAction> stateMachine;
 
 
         private void Awake()
         {
-            Init();
+            if (!useTrigger) Init();
+            healthBase.OnKill += OnBossKill;
         }
 
         public void Init()
         {
+            if (isActive) return;
+            isActive = true;
+
             stateMachine = new StateMachine<BossAction>();
             stateMachine.Init();
 
             stateMachine.RegisterStates(BossAction.INIT, new BossStateInit());
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
             stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
+            stateMachine.RegisterStates(BossAction.DEATH, new BossStateKill());
+
         }
+
+        #region  BOSS
+        private void OnBossKill(HealthBase h)
+        {
+            SwitchState(BossAction.DEATH);
+        }
+        #endregion
 
 
         #region COROUTINE ATTACK
@@ -86,10 +105,34 @@ namespace Boss
             while(Vector3.Distance(transform.position, t.position) > 1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, t.position, Time.deltaTime * speed);
+
+                Vector3 direction = (t.position - transform.position).normalized;
+                if(direction != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
+                }
+
                 yield return new WaitForEndOfFrame();
             }
 
             if(onArrive !=  null) onArrive.Invoke();
+        }
+
+        #endregion
+
+
+        #region TRIGGER
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!useTrigger || isActive) return; // Ignora se o uso de trigger está desativado ou já está ativo
+
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Init(); // Inicializa o Boss quando o Player entra no trigger
+                SwitchState(BossAction.WALK); // Troca para o estado WALK
+            }
         }
 
         #endregion

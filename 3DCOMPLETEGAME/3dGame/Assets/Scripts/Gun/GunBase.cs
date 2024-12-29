@@ -30,13 +30,13 @@ public class GunBase : MonoBehaviour
     public void StartShooting()
     {
         CancelShooting();
-        Debug.Log("Starting Shooting...");
+       // Debug.Log("Starting Shooting...");
         _currentCoroutine = StartCoroutine(StartShoot());
     }
 
     public void CancelShooting()
     {
-        Debug.Log("Cancel Shooting Called");
+        //Debug.Log("Cancel Shooting Called");
         if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
     }
 

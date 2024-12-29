@@ -42,6 +42,12 @@ namespace Boss
         {
             boss.SwitchState(BossAction.ATTACK);
         }
+
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            boss.StopAllCoroutines();
+        }
     }
 
     public class BossStateAttack : BossStateBase
@@ -55,6 +61,20 @@ namespace Boss
         private void EndAttacks()
         {
             boss.SwitchState(BossAction.WALK);
+        }
+
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            boss.StopAllCoroutines();
+        }
+    }
+
+    public class BossStateKill : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
         }
     }
 

@@ -10,7 +10,8 @@ namespace Enemy
     {
         public Collider _collider;
         public float startLife = 10f;
-        public bool lookAtPlayer = false; 
+        public bool lookAtPlayer = false;
+        public bool useTrigger = true; // Define se o inimigo depende de trigger para ativar
 
         public FlashColor _flashColor;
         public ParticleSystem _particleSystem;
@@ -21,21 +22,18 @@ namespace Enemy
         [Header("Animation")]
         [SerializeField] private AnimationBase _animationBase;
 
-
         [Header("Start Animation")]
         public float startAnimationDuration = .2f;
         public Ease startAnimationEase = Ease.OutBack;
         public bool startWithBornAnimation = true;
 
-
+        private bool isActive = false; // Estado de ativação do inimigo
         private PlayerController _playerController;
-
 
         private void Awake()
         {
-            Init();
+            if (!useTrigger) Init(); // Ativa automaticamente se useTrigger for falso
         }
-
 
         private void Start()
         {
@@ -47,12 +45,12 @@ namespace Enemy
             _currentLife = startLife;
         }
 
-
         protected virtual void Init()
         {
             ResetLife();
+            isActive = true; // Define o inimigo como ativo
 
-            if(startWithBornAnimation)
+            if (startWithBornAnimation)
             {
                 BornAnimation();
             }
@@ -78,8 +76,8 @@ namespace Enemy
             transform.position -= transform.forward;
 
             _currentLife -= f;
-            
-            if(_currentLife <= 0)
+
+            if (_currentLife <= 0)
             {
                 Kill();
             }
@@ -87,7 +85,9 @@ namespace Enemy
 
         public virtual void Update()
         {
-            if(lookAtPlayer) 
+            if (!isActive) return; // Não faz nada se o inimigo não estiver ativo
+
+            if (lookAtPlayer)
             {
                 transform.LookAt(_playerController.transform.position);
             }
@@ -100,14 +100,12 @@ namespace Enemy
             transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
         }
 
-
         public void PlayAnimationByTrigger(AnimationType animationType)
         {
             _animationBase.PlayAnimationByTrigger(animationType);
         }
 
         #endregion
-
 
         public void Damage(float damage)
         {
@@ -120,16 +118,18 @@ namespace Enemy
             transform.DOMove(transform.position - dir, .1f);
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-             PlayerController p = collision.transform.GetComponent<PlayerController>();
 
-            if (p != null) 
+        #region TRIGGER
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!useTrigger || isActive) return; // Ignora se o uso de trigger está desativado ou já está ativo
+
+            if (other.gameObject.CompareTag("Player"))
             {
-                p.Damage(1);
+                Init(); // Ativa o inimigo ao detectar o player
             }
         }
 
+        #endregion
     }
-
 }
