@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CheckPointBase : MonoBehaviour
 {
 
     public MeshRenderer meshRenderer;
     public int Key = 01;
+
+    public TMP_Text checkPointText;
 
 
     private bool checkPointActive = false; 
@@ -36,6 +39,9 @@ public class CheckPointBase : MonoBehaviour
    private void TurnItOn()
    {
         meshRenderer.material.SetColor("_EmissionColor", Color.white);
+        checkPointText.text = "Checkpoint Ativo";
+
+        StartCoroutine(HideCheckpointMessage(3f));
    }
 
     [NaughtyAttributes.Button]
@@ -54,5 +60,11 @@ public class CheckPointBase : MonoBehaviour
         
         checkPointActive = true;
    }
+
+   private IEnumerator HideCheckpointMessage(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        checkPointText.text = ""; 
+    }
 
 }
