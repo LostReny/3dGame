@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7156742713866935167}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 405, y: -5.73, z: 55.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -99,7 +99,8 @@ MonoBehaviour:
   positionProjectile: {fileID: 7156742714218765133}
   timeBetweenShoot: 0.3
   speed: 50
-  gunUpdaters: []
+  gunUpdaters:
+  - {fileID: 0}
   maxShoot: 5
   timeToRecharge: 1
   amountPerShoot: 4
