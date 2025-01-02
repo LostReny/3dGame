@@ -7,6 +7,10 @@ using UnityEngine;
 public class HealthBase : MonoBehaviour, IDamagable
 {
     public float startLife = 10f;
+
+    [Header("UI")]
+    public UIGunUpdater uIUpdater;
+
     public bool destroyOnKill = false;
 
     [SerializeField] private float _currentLife;
@@ -56,6 +60,7 @@ public class HealthBase : MonoBehaviour, IDamagable
             Kill();
         }
 
+        UpdateUi();
         OnDamage?.Invoke(this);
     }
 
@@ -63,5 +68,15 @@ public class HealthBase : MonoBehaviour, IDamagable
         {
             Damage(damage);
         }
+
+    #region UI
+    private void UpdateUi()
+    {
+        if(uIUpdater != null)
+        {
+            uIUpdater.UpdateValue((float)_currentLife/startLife);
+        }
+    }
+    #endregion
 
 }

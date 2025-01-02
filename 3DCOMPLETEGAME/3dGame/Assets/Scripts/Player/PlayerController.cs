@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour//IDamagable
     {
         OnValidate();
         healthBase.OnDamage += Damage;
-        healthBase.OnDamage += OnKill;
+        healthBase.OnKill += OnKill;
     }
 
 
