@@ -41,8 +41,18 @@ namespace Boss
         private StateMachine<BossAction> stateMachine;
 
 
+         private void OnValidate()
+        {
+            if(healthBase == null)
+            {
+                healthBase = GetComponent<HealthBase>();
+            }
+        }
+
+
         private void Awake()
         {
+            OnValidate();
             if (!useTrigger) Init();
             healthBase.OnKill += OnBossKill;
         }
@@ -126,7 +136,7 @@ namespace Boss
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!useTrigger || isActive) return; // Ignora se o uso de trigger está desativado ou já está ativo
+            if (!useTrigger || isActive) return; // Ignora se o uso de trigger estï¿½ desativado ou jï¿½ estï¿½ ativo
 
             if (other.gameObject.CompareTag("Player"))
             {

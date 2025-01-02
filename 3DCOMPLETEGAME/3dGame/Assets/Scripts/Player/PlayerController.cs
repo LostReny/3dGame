@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IDamagable
+public class PlayerController : MonoBehaviour//IDamagable
 {
+    
+    public List<Collider> colliders;
+    
     [Header("Animator")]
     public Animator animator;
 
@@ -25,6 +28,28 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
+
+    [Header("Health")]
+    public HealthBase healthBase;
+    private bool _alive = true;
+
+
+
+    private void OnValidate()
+    {
+        if(healthBase == null)
+        {
+            healthBase = GetComponent<HealthBase>();
+        }
+    }
+
+    private void Awake()
+    {
+        OnValidate();
+        healthBase.OnDamage += Damage;
+        healthBase.OnDamage += OnKill;
+    }
+
 
     private void Update()
     {
@@ -91,14 +116,26 @@ public class PlayerController : MonoBehaviour, IDamagable
     #endregion
 
     #region Life
-    public void Damage(float damage)
+    public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
     }
 
     public void Damage(float damage, Vector3 dir)
     {
-        Damage(damage);
+        
+    }
+    private void OnKill(HealthBase h)
+    {
+        
+        if(_alive)
+        {
+            _alive = false;
+            animator.SetTrigger("Death");
+            colliders.ForEach(i => i.enabled = false);
+        }
+        
     }
     #endregion
+
 }

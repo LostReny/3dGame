@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.8795755, g: 0.7107174, b: 0.88143706, a: 1}
+  m_IndirectSpecularColor: {r: 0.8795486, g: 0.7107104, b: 0.8814345, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1165,7 +1165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89601780}
-  m_LocalRotation: {x: 0.24446768, y: -0.000000018653607, z: 0.0000000047029025, w: 0.9696575}
+  m_LocalRotation: {x: 0.24446768, y: 0.000000018653607, z: -0.0000000047029025, w: 0.9696575}
   m_LocalPosition: {x: 405, y: 2.1, z: 42.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22999,6 +22999,7 @@ GameObject:
   - component: {fileID: 1431474611}
   - component: {fileID: 1431474613}
   - component: {fileID: 1431474614}
+  - component: {fileID: 1431474615}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23052,6 +23053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b437fff58204344a9951b84e10573ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliders:
+  - {fileID: 1431474611}
+  - {fileID: 1431474614}
   animator: {fileID: 1472438629}
   characterController: {fileID: 1431474611}
   speed: 15
@@ -23064,6 +23068,7 @@ MonoBehaviour:
   flashColors:
   - {fileID: 441178136}
   - {fileID: 1201447529}
+  healthBase: {fileID: 1431474615}
 --- !u!114 &1431474613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23093,6 +23098,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5821228, y: 3.6055486, z: 1}
   m_Center: {x: 0.00440979, y: 1.8323096, z: 0}
+--- !u!114 &1431474615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431474609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670f405adf9e1b14c85e70e9ee2304bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 10
+  destroyOnKill: 0
+  _currentLife: 0
 --- !u!1 &1433421844
 GameObject:
   m_ObjectHideFlags: 0
@@ -23624,7 +23644,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.24446768, y: -0.000000018653607, z: 0.0000000047029025, w: 0.9696575}
+  m_LocalRotation: {x: 0.24446768, y: 0.000000018653607, z: -0.0000000047029025, w: 0.9696575}
   m_LocalPosition: {x: 405, y: 2.1, z: 42.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

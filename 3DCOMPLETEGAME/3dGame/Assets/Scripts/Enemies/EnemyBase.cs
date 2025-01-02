@@ -27,7 +27,7 @@ namespace Enemy
         public Ease startAnimationEase = Ease.OutBack;
         public bool startWithBornAnimation = true;
 
-        private bool isActive = false; // Estado de ativação do inimigo
+        private bool isActive = false; // Estado de ativaï¿½ï¿½o do inimigo
         private PlayerController _playerController;
 
         private void Awake()
@@ -83,14 +83,26 @@ namespace Enemy
             }
         }
 
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            PlayerController p = collision.transform.GetComponent<PlayerController>();
+            if(p != null)
+            {
+                p.healthBase.Damage(1);
+            }
+        }
+
         public virtual void Update()
         {
-            if (!isActive) return; // Não faz nada se o inimigo não estiver ativo
+            if (!isActive) return; // Nï¿½o faz nada se o inimigo nï¿½o estiver ativo
 
             if (lookAtPlayer)
             {
-                transform.LookAt(_playerController.transform.position);
+                Vector3 targetPosition = new Vector3(_playerController.transform.position.x, transform.position.y, _playerController.transform.position.z);
+                transform.LookAt(targetPosition);
             }
+
         }
 
         #region Animations
@@ -122,7 +134,7 @@ namespace Enemy
         #region TRIGGER
         private void OnTriggerEnter(Collider other)
         {
-            if (!useTrigger || isActive) return; // Ignora se o uso de trigger está desativado ou já está ativo
+            if (!useTrigger || isActive) return; // Ignora se o uso de trigger estï¿½ desativado ou jï¿½ estï¿½ ativo
 
             if (other.gameObject.CompareTag("Player"))
             {
