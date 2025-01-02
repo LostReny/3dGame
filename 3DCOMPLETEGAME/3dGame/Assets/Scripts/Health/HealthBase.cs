@@ -29,7 +29,7 @@ public class HealthBase : MonoBehaviour, IDamagable
         ResetLife();
     }
 
-    protected virtual void ResetLife()
+    public void ResetLife()
     {
         _currentLife = startLife;
     }
@@ -70,7 +70,7 @@ public class HealthBase : MonoBehaviour, IDamagable
         }
 
     #region UI
-    private void UpdateUi()
+    public void UpdateUi()
     {
         if(uIUpdater != null)
         {

@@ -133,9 +133,42 @@ public class PlayerController : MonoBehaviour//IDamagable
             _alive = false;
             animator.SetTrigger("Death");
             colliders.ForEach(i => i.enabled = false);
+
+            Invoke(nameof(Revive), 3f);
         }
         
     }
+
+    private void Revive()
+    {
+        _alive = true;
+        healthBase.ResetLife();
+        animator.SetTrigger("Revive");
+        Respawn();
+        healthBase.UpdateUi();
+        Invoke(nameof(TurnOnColliders), .1f);
+    }
+
+    private void TurnOnColliders()
+    {
+        colliders.ForEach(i => i.enabled = true);
+    }
+
+    #endregion
+
+    #region CHECKPOINTS
+
+
+    [NaughtyAttributes.Button]
+    public void Respawn()
+    {
+        if(CheckPointManager.Instance.HasCheckPoint())
+        {
+            transform.position = CheckPointManager.Instance.GetPositionFromLastCheckPoint();
+        }
+    }
+
+
     #endregion
 
 }
