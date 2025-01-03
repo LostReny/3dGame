@@ -28,14 +28,16 @@ namespace Boss
         [Header("Attack")]
         public int attackAmount = 5;
         public float timeBtwAttacks = .5f;
-
-
         public float speed = 5f;
+
+        [Header("Waypoints")]
         public List<Transform> waypoints;
 
+        /*[Header("Trigger")]
         public bool useTrigger = true;
-        private bool isActive = false;
+        private bool isActive = false;*/
 
+        [Header("Life")]
         public HealthBase healthBase;
 
         private StateMachine<BossAction> stateMachine;
@@ -53,14 +55,15 @@ namespace Boss
         private void Awake()
         {
             OnValidate();
-            if (!useTrigger) Init();
+            //if (!useTrigger) Init();
             healthBase.OnKill += OnBossKill;
+            //bossCamera.SetActive(false);
         }
 
         public void Init()
         {
-            if (isActive) return;
-            isActive = true;
+            //if (isActive) return;
+            //isActive = true;
 
             stateMachine = new StateMachine<BossAction>();
             stateMachine.Init();
@@ -132,20 +135,26 @@ namespace Boss
         #endregion
 
 
-        #region TRIGGER
+        //#region TRIGGER
 
-        private void OnTriggerEnter(Collider other)
+        /*private void OnTriggerEnter(Collider other)
         {
             if (!useTrigger || isActive) return; // Ignora se o uso de trigger est� desativado ou j� est� ativo
 
             if (other.gameObject.CompareTag("Player"))
             {
                 Init(); // Inicializa o Boss quando o Player entra no trigger
+                TurnCameraOn();
                 SwitchState(BossAction.WALK); // Troca para o estado WALK
             }
         }
 
-        #endregion
+        public void TurnCameraOn()
+        {
+            bossCamera.SetActive(true);
+        }
+
+        #endregion*/
 
 
         #region ANIMATION 
@@ -193,4 +202,3 @@ namespace Boss
     }
 
 }
-
