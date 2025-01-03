@@ -40,4 +40,11 @@ public class BossStartCheck : MonoBehaviour
         bossCamera.SetActive(true);
     }
 
+    public void TurnCameraOff()
+    {
+        bossCamera.SetActive(false);
+    }
+        
+    
+
 }

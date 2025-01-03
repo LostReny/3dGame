@@ -40,6 +40,9 @@ namespace Boss
         [Header("Life")]
         public HealthBase healthBase;
 
+        public BossStartCheck bossStartCheckCamera;
+        public Collider _bossCollider;
+
         private StateMachine<BossAction> stateMachine;
 
 
@@ -58,6 +61,7 @@ namespace Boss
             //if (!useTrigger) Init();
             healthBase.OnKill += OnBossKill;
             //bossCamera.SetActive(false);
+            _bossCollider.enabled = true;
         }
 
         public void Init()
@@ -76,9 +80,11 @@ namespace Boss
         }
 
         #region  BOSS
-        private void OnBossKill(HealthBase h)
+        public void OnBossKill(HealthBase h)
         {
             SwitchState(BossAction.DEATH);
+            bossStartCheckCamera.TurnCameraOff();
+            _bossCollider.enabled = false;
         }
         #endregion
 
@@ -97,6 +103,7 @@ namespace Boss
             {
                 attacks++;
                 transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
+                ShakeCamera.Instance.Shake();
                 yield return new WaitForSeconds(timeBtwAttacks);
             }
 

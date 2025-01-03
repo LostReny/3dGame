@@ -133,7 +133,8 @@ public class PlayerController : MonoBehaviour//IDamagable
         {
             _alive = false;
             animator.SetTrigger("Death");
-            colliders.ForEach(i => i.enabled = false);
+            //colliders.ForEach(i => i.enabled = false);
+            Invoke(nameof(TurnOffColliders), .05f);
 
             Invoke(nameof(Revive), 3f);
         }
@@ -150,9 +151,14 @@ public class PlayerController : MonoBehaviour//IDamagable
         Invoke(nameof(TurnOnColliders), .1f);
     }
 
-    private void TurnOnColliders()
+    public void TurnOnColliders()
     {
         colliders.ForEach(i => i.enabled = true);
+    }
+
+    public void TurnOffColliders()
+    {
+        colliders.ForEach(i => i.enabled = false);
     }
 
     #endregion
