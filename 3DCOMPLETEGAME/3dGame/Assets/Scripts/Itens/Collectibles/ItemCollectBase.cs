@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class ItemCollectBase : MonoBehaviour
 {
-    //override - usado para escrever em cima de uma classe pai(virtual), dando função diferente para classe filha(override)
-
     public string compareTag = "Player";
 
     public float timeToHide = 1;
     public GameObject graphicItem;
 
-    //referencia para som 
-    [Header("Sounds")]
-    public AudioSource audioSource;
+    /*[Header("Sounds")]
+    public AudioSource audioSource;*/
 
 
-    public void OnTriggerEnter2D(Collider2D collision) {
+    public void OnTriggerEnter(Collider collision) {
 
         if(collision.transform.CompareTag(compareTag)){
             Collect();
@@ -24,16 +21,13 @@ public class ItemCollectBase : MonoBehaviour
         
     }
 
-
-    //o que vai acontecer quando coletar ??
-    // quando coletar ele destroi e chama a ação ao coletar 
-    protected virtual void Collect(){
-        OnCollect();
-
+    protected virtual void Collect()
+    {
         Destroy(gameObject, 0.5f);
 
         if (graphicItem != null) graphicItem.SetActive(true);
         Invoke("HideObject", timeToHide);
+        OnCollect();
     }
 
     private void HideObject()
@@ -42,21 +36,16 @@ public class ItemCollectBase : MonoBehaviour
         
     }
 
-
-
-    //quando coletar que ação será realizada ?
     protected virtual void OnCollect()
-{
+    {
 
-        if (!audioSource.isPlaying) {
-            audioSource.transform.SetParent(null);
-            audioSource.Play();
-            //Debug.Log("Esta tocando");
-        }
+            /*if (!audioSource.isPlaying) {
+                audioSource.transform.SetParent(null);
+                audioSource.Play();
+                //Debug.Log("Esta tocando");
+            }
 
-        //colocar esse vfs somente para moedas 
-        //criar outro para a vida
-        //VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.COIN, transform.position);
-}
+            VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.COIN, transform.position);*/
+    }
 
 }

@@ -9,6 +9,7 @@ public class CameraTrigger : MonoBehaviour
    public PlayerController playerController;
 
    public GameObject cameraTrigger;
+    public GameObject cameraIdlePlayer; 
    public Color gizmoColor = Color.yellow;
 
    public float duration = 1f;
@@ -20,6 +21,7 @@ public class CameraTrigger : MonoBehaviour
    {
         cameraTrigger.SetActive(false);
         _collider.enabled = true;
+        cameraIdlePlayer.SetActive(true);
    }
 
    private void OnTriggerEnter(Collider other)
@@ -31,17 +33,11 @@ public class CameraTrigger : MonoBehaviour
 
    }
 
-   private void TurnCameraTriggerOn()
+   private void TurnCameraTriggerOn(bool triggerState, bool idleState)
    {
-        cameraTrigger.SetActive(true);
-        playerController.TurnOffColliders();
-   }
-
-   private void TurnCameraTriggerOff()
-   {
-        cameraTrigger.SetActive(false);
-        playerController.TurnOnColliders();
-   }
+        cameraTrigger.SetActive(triggerState);
+        cameraIdlePlayer.SetActive(idleState);
+    }
 
    private void OnDrawGizmos()
    {
@@ -50,16 +46,17 @@ public class CameraTrigger : MonoBehaviour
    }
 
    IEnumerator CameraCoroutine()
-   {
-       if(cameraTrigger != null)
-       {
-          TurnCameraTriggerOn();
+    {
+        if (cameraTrigger != null && cameraIdlePlayer != null)
+        {
+            TurnCameraTriggerOn(true, false);
+            _collider.enabled = false;
+            playerController.TurnOffColliders();
 
-          yield return new WaitForSeconds(duration);
-          
-          _collider.enabled = false;
-          TurnCameraTriggerOff();
-       }
+            yield return new WaitForSeconds(duration);
+            TurnCameraTriggerOn(false, true);
+            playerController.TurnOnColliders();
 
-   }
+        }
+    }
 }
