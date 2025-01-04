@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee43da0df9e7aaf479d8357a926645b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   compareTag: Player
   timeToHide: 0.1
   graphicItem: {fileID: 4697315248057972730}
+  _collider: {fileID: 0}
 --- !u!135 &7943531300900881689
 SphereCollider:
   m_ObjectHideFlags: 0
