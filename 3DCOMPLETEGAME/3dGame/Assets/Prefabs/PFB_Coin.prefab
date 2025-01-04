@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
-  timeToHide: 1
+  timeToHide: 0.1
   graphicItem: {fileID: 4697315248057972730}
 --- !u!135 &7943531300900881689
 SphereCollider:
