@@ -78,6 +78,7 @@ namespace Itens
     public class ItensSetup
         {
             public ItemType itemType;
-            public SOInt soInt;        
+            public SOInt soInt;
+            public Sprite icon;
         }
 }
