@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Itens;
 using TMPro;
+using DG.Tweening;
 
 public class ActionLifePack : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ActionLifePack : MonoBehaviour
 
     public TMP_Text lifeLowtText;
     public bool usedItemOnce = false;
+
 
     public void Start()
     {   
@@ -33,7 +35,7 @@ public class ActionLifePack : MonoBehaviour
     {
         var life = playerController.healthBase.currentLife;
         if(life <= 4 && !usedItemOnce)
-        {
+        {   
             lifeLowtText.text = "Aperte E para recuperar vida";
             usedItemOnce = true;
             StartCoroutine(HideMessage(4f));
