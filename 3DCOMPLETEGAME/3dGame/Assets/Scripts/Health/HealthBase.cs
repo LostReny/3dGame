@@ -15,6 +15,18 @@ public class HealthBase : MonoBehaviour, IDamagable
 
     [SerializeField] private float _currentLife;
 
+    public float currentLife
+    {
+        get
+        {
+            return _currentLife;
+        }
+        set
+        {
+            _currentLife = value;
+        }
+    }
+
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
 

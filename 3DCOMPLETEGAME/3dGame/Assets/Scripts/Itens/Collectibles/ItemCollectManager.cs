@@ -42,6 +42,11 @@ namespace Itens
             }
         }
 
+        public ItensSetup GetItemByType(ItemType itemType, int amount = 1)
+        {
+            return itensSetups.Find(i => i.itemType == itemType);
+        }
+        
         public void AddByType(ItemType itemType, int amount = 1)
         {
             if (amount < 0) return;
@@ -49,9 +54,9 @@ namespace Itens
             itensSetups.Find(i => i.itemType == itemType).soInt.value += amount;
         }
 
-        public void RemoveByType(ItemType itemType, int amount = -1)
+        public void RemoveByType(ItemType itemType, int amount = 1)
         {
-            if (amount > 0) return;
+            //if (amount > 0) return;
 
             var item = itensSetups.Find(i => i.itemType == itemType);
             item.soInt.value -= amount;
