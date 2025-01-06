@@ -50,10 +50,10 @@ MonoBehaviour:
   shakeDuration: 0.15
   shakeForce: 1
   meshRenderer: {fileID: 8451945593217755760}
-  dropCoinsAmount: 3
-  coinPrefab: {fileID: 464828598025188868, guid: 4f9b1df492245a24582827a39239a3bc, type: 3}
+  dropCoinsAmount: 5
+  coinPrefab: {fileID: 4002442992678226841, guid: edbc6f1461fa87046bf55e604129a023, type: 3}
   posCoin: {fileID: 7502124123271043585}
-  LimitOfDrop: 3
+  LimitOfDrop: 4
   canDrop: 1
 --- !u!114 &7502124122838176629
 MonoBehaviour:
