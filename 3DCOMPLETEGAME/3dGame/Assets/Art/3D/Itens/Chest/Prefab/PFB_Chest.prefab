@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5611965738368973783}
+  _keycode: 122
   triggerOpen: Open
   _chestCollider: {fileID: 8917270153365953397}
   _notification: {fileID: 0}
