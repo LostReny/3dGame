@@ -16,6 +16,9 @@ public class ChestBase : MonoBehaviour
     public string triggerOpen = "Open";
     public Collider _chestCollider;
 
+    [Header("Camera")]
+    public GameObject chestCamera;
+
     [Header("Notification")]
     public GameObject _notification;
     public float tweenDuration = .2f;
@@ -50,6 +53,7 @@ public class ChestBase : MonoBehaviour
         animator.SetTrigger(triggerOpen);
         _chestCollider.enabled = false;
         _chestOpened = true;
+        TurnCameraOn();
         Invoke(nameof(ShowItemInChest), .5f);
     }
 
@@ -117,6 +121,17 @@ public class ChestBase : MonoBehaviour
     private void CollecItemInChest()
     {
         chestItemBase.Collect();
+        TurnCameraOff();
+    }
+
+     private void TurnCameraOn()
+    {
+        chestCamera.SetActive(true);
+    }
+
+    public void TurnCameraOff()
+    {
+        chestCamera.SetActive(false);
     }
 
 }
