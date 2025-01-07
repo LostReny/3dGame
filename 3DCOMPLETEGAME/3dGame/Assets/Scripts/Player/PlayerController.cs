@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cloth;
 
 public class PlayerController : MonoBehaviour//IDamagable
 {
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour//IDamagable
     [Header("Run")]
     public float runSpeed = 1.5f;
     public KeyCode runKeyCode = KeyCode.LeftShift;
+    private float originalRunSpeed;
+
+    private Coroutine speedChangeCoroutine;
 
     private float vSpeed = 0f;
 
@@ -33,7 +37,8 @@ public class PlayerController : MonoBehaviour//IDamagable
     public HealthBase healthBase;
     private bool _alive = true;
 
-
+    [Space]
+    [SerializeField] private ClothChanger _clothChanger;
 
     private void OnValidate()
     {
@@ -46,6 +51,7 @@ public class PlayerController : MonoBehaviour//IDamagable
     private void Awake()
     {
         OnValidate();
+        originalRunSpeed = runSpeed;
         healthBase.OnDamage += Damage;
         healthBase.OnKill += OnKill;
     }
@@ -71,7 +77,15 @@ public class PlayerController : MonoBehaviour//IDamagable
 
         characterController.Move(speedVector * Time.deltaTime);
 
-        // run e anima��o
+        OnRun();
+    }
+
+
+    public void OnRun()
+    {   
+        var inputAxisVertical = Input.GetAxis("Vertical");
+        var speedVector = transform.forward * inputAxisVertical * speed;
+         // run e anima��o
         var isWalking = inputAxisVertical != 0;
         if (isWalking)
         {
@@ -97,9 +111,40 @@ public class PlayerController : MonoBehaviour//IDamagable
             animator.SetBool("Run", false);
         }
 
-
     }
     #endregion
+
+        public void ChangeRunSpeedTemporarily(float newRunSpeed, float duration)
+        {
+            if (speedChangeCoroutine != null)
+            {
+                StopCoroutine(speedChangeCoroutine);
+                runSpeed = originalRunSpeed; 
+            }
+
+            speedChangeCoroutine = StartCoroutine(ChangeRunSpeedCoroutine(newRunSpeed, duration));
+        }
+
+        private IEnumerator ChangeRunSpeedCoroutine(float newRunSpeed, float duration)
+        {
+            runSpeed = newRunSpeed;
+            yield return new WaitForSeconds(duration);
+            runSpeed = originalRunSpeed;
+            speedChangeCoroutine = null;
+        }
+
+        public void ChangeTexture(ClothSetup setup, float duration)
+        {
+            StartCoroutine(ChangeTextureCoroutine(setup, duration));
+        }
+
+        private IEnumerator ChangeTextureCoroutine(ClothSetup setup, float duration)
+        {
+            _clothChanger.ChangeTexture(setup);
+            yield return new WaitForSeconds(duration);
+            _clothChanger.ResetTexture();
+        }
+
 
     #region jump
     public void OnJump()
