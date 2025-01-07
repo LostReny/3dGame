@@ -5,8 +5,12 @@ using UnityEngine;
 public class Magnetic : MonoBehaviour
 {
     public PlayerController playerController;
-    public float dist = .2f;
-    public float coinSpeed = .5f;
+    public float dist = 0.2f;      
+    public float initialSpeed = 5f; 
+    public float maxSpeed = 9f;    
+    public float acceleration = 3.5f;
+
+    private float currentSpeed;
 
     public void Start()
     {
@@ -18,15 +22,28 @@ public class Magnetic : MonoBehaviour
                 playerController = playerObject.GetComponent<PlayerController>();
             }
         }
+
+        currentSpeed = initialSpeed;
+
     }
 
 
-    void Update()
+   void Update()
     {
-        if(Vector3.Distance(transform.position, playerController.transform.position) > dist)
+        MoveToPlayer();
+    }
+
+    void MoveToPlayer()
+    {
+        if (playerController != null)
         {
-            coinSpeed++;
-            transform.position = Vector3.MoveTowards(transform.position, playerController.transform.position, Time.deltaTime * coinSpeed);
-        }  
+            float distance = Vector3.Distance(transform.position, playerController.transform.position);
+
+            if (distance > dist)
+            {
+                currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
+                transform.position = Vector3.Lerp(transform.position,playerController.transform.position,Time.deltaTime * currentSpeed / distance );
+            }
+        }
     }
 }

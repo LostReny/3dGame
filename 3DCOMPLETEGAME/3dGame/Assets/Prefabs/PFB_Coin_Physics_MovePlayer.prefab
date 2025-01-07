@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4753614590558384991}
   m_Layer: 0
   m_Name: PFB_Coin_Physics_MovePlayer
-  m_TagString: Untagged
+  m_TagString: MagneticCoin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   dist: 0.2
-  coinSpeed: 0.5
+  coinSpeed: 2
 --- !u!1001 &1767284926950608764
 PrefabInstance:
   m_ObjectHideFlags: 0
