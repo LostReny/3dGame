@@ -1,8 +1,10 @@
 using Animation;
 using DG.Tweening;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cloth;
 
 public class HealthBase : MonoBehaviour, IDamagable
 {
@@ -26,6 +28,8 @@ public class HealthBase : MonoBehaviour, IDamagable
             _currentLife = value;
         }
     }
+
+    public float damageMultipliyer = 1;
 
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
@@ -65,7 +69,7 @@ public class HealthBase : MonoBehaviour, IDamagable
     public void Damage(float f)
     {
 
-        _currentLife -= f;
+        _currentLife -= f * damageMultipliyer;
 
         if (_currentLife <= 0)
         {
@@ -91,4 +95,22 @@ public class HealthBase : MonoBehaviour, IDamagable
     }
     #endregion
 
+
+    #region MENOS DANO
+       
+        public void ChangeDamageMultiplay(float damage, float duration)
+        {
+            StartCoroutine(ChangeDamageCoroutine(damageMultipliyer, duration));
+        }
+
+        public IEnumerator ChangeDamageCoroutine(float damageMultipliyer, float duration)
+        {
+
+            this.damageMultipliyer = damageMultipliyer;
+            yield return new WaitForSeconds(duration);    
+            this.damageMultipliyer = 1;
+        }
+
+
+    #endregion
 }

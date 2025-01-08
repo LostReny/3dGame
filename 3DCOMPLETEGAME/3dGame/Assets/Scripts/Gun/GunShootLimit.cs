@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Cloth;
 
 public class GunShootLimit : GunBase
 {
     public List<UIGunUpdater> gunUpdaters;
 
-    public float maxShoot = 5f;
+    [SerializeField] private float _maxShoot = 5f;
+
+    public float maxShoot
+    {
+        get => _maxShoot;
+        set => _maxShoot = value;
+    }
+
+
     public float timeToRecharge = 1f;
 
 
@@ -27,7 +36,7 @@ public class GunShootLimit : GunBase
 
         while (true) 
         {
-            if (_currentShoots < maxShoot)
+            if (_currentShoots < _maxShoot)
             {
                 Shoot();
                 _currentShoots++;
@@ -41,7 +50,7 @@ public class GunShootLimit : GunBase
 
     private void CheckRecharge()
     {
-        if(_currentShoots >= maxShoot)
+        if(_currentShoots >= _maxShoot)
         {
             CancelShooting();
             StartRecharge();
@@ -69,7 +78,7 @@ public class GunShootLimit : GunBase
 
     private void UpdateUI()
     {
-        gunUpdaters.ForEach(i => i.UpdateValue(maxShoot,_currentShoots));
+        gunUpdaters.ForEach(i => i.UpdateValue(_maxShoot,_currentShoots));
     }
 
     private void GetAllUIs()
@@ -89,4 +98,31 @@ public class GunShootLimit : GunBase
         //CODIGO ANTIGO
         //gunUpdaters = GameObject.FindObjectsOfType<UIGunUpdater>().ToList();
     }
+
+    #region VELOCIDADE SHOOT LIMIT
+       
+        public void ChangeShootLimit(float newLimitShoot, float duration)
+        {
+            StartCoroutine(ChangeShootLimitCoroutine(newLimitShoot, duration));
+        }
+        public IEnumerator DisableRechargingForDuration(float duration)
+        {
+            recharging = false;
+            yield return new WaitForSeconds(duration);
+            //recharging = true;
+        }
+
+        public IEnumerator ChangeShootLimitCoroutine(float newLimitShoot, float duration)
+        {
+            StartCoroutine(DisableRechargingForDuration(duration));
+
+            float originalLimitShoot = _maxShoot;
+            _maxShoot = newLimitShoot;
+            yield return new WaitForSeconds(duration);    
+            _maxShoot = originalLimitShoot;
+            recharging = true;
+        }
+
+
+    #endregion
 }

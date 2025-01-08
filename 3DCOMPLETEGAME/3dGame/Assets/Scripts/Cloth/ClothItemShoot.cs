@@ -8,21 +8,37 @@ namespace Cloth
 
     public class ClothItemShoot : ClothItemBase
     {
-        public GunBase gunBase;
         public GameObject gunObject;
+
+        public float newMaxShoot = 10f;
+        public float newTBwShoot = 0.01f;
+
+        public GunShootLimit gunLimit;
 
         public override void Collect()
         {
             base.Collect();
-            gunBase.ChangeShootSpeed(0.1f, 5f);
+            gunLimit.ChangeShootLimit(newMaxShoot, duration);
+            gunLimit.ChangeShootSpeed(newTBwShoot, duration);
+
+            Invoke("DestroyGO", 3f);
         }
 
         private void Start()
         {
-            if (gunBase != null)
+            if (gunObject != null)
             {
-                gunBase = gunObject.GetComponent<GunBase>();
+                gunLimit = gunObject.GetComponent<GunShootLimit>();
             }
+            else
+            {
+                Debug.LogError("Gun object is null. Ensure gunObject is assigned in the Inspector.");
+            }
+        }
+
+        public void DestroyGO()
+        {
+            Destroy(gameObject, 0.5f);
         }
     }
 
