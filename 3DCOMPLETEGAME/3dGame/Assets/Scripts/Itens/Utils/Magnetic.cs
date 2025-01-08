@@ -45,5 +45,12 @@ public class Magnetic : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position,playerController.transform.position,Time.deltaTime * currentSpeed / distance );
             }
         }
+        Invoke("DestroyGO", 3.5f);
     }
+
+    public void DestroyGO()
+    {
+        Destroy(gameObject, 0.5f);
+    }
+
 }

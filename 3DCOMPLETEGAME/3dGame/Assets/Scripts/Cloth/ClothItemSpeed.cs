@@ -6,35 +6,24 @@ namespace Cloth
 {
     public class ClothItemSpeed : ClothItemBase
     {
-        private PlayerController playerController;
+
+        public float targetSpeed = 30f;
 
         public override void Collect()
         {
             base.Collect();
 
-            if (playerController == null)
-            {
-                FindPlayerController();
-            }
-
             if (playerController != null)
             {
-                Debug.Log("Item coletado: Aumentando velocidade do jogador.");
-                playerController.ChangeRunSpeedTemporarily(3.0f, 5.0f);
+                playerController.ChangeRunSpeedTemporarily(targetSpeed, duration);
             }
-            else
-            {
-                Debug.LogError("PlayerController não encontrado!");
-            }
+
+            Invoke("DestroyGO", 3f);
         }
 
-        private void FindPlayerController()
+        public void DestroyGO()
         {
-            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-            if (playerObject != null)
-            {
-                playerController = playerObject.GetComponent<PlayerController>();
-            }
+            Destroy(gameObject, 0.5f);
         }
     }
-}
+ }

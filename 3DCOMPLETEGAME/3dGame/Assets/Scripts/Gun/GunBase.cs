@@ -40,4 +40,24 @@ public class GunBase : MonoBehaviour
         if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
     }
 
+    #region VELOCIDADE AO PEGAR ITEM
+       
+        public void ChangeShootSpeed(float newTimeBetweenShoot, float duration)
+        {
+            StartCoroutine(ChangeShootCoroutine(newTimeBetweenShoot, duration));
+        }
+
+        IEnumerator ChangeShootCoroutine(float newTimeBetweenShoot, float duration)
+        {
+            float originalTimeBetweenShoot = timeBetweenShoot;
+            timeBetweenShoot = newTimeBetweenShoot;       
+
+            yield return new WaitForSeconds(duration);    
+
+            timeBetweenShoot = originalTimeBetweenShoot;
+        }
+
+
+        #endregion
+
 }

@@ -21,6 +21,9 @@ public class ChestItemCoin : ChestItemBase
         CreateItems();
     }
 
+
+
+
     [NaughtyAttributes.Button]
     private void CreateItems()
     {
@@ -45,6 +48,24 @@ public class ChestItemCoin : ChestItemBase
             i.transform.DOScale(0, tweenEndTime / 2 ).SetDelay(tweenEndTime / 2);
             ItemCollectManager.Instance.AddByType(ItemType.COIN);
         }
+
+        Invoke("DestroyGO", 3.5f);
     }
+
+    
+     private void DestroyGO()
+    {
+        foreach (var item in _items)
+        {
+            if (item != null) 
+            {
+                Destroy(item);
+            }
+        
+        }
+
+        _items.Clear();
+    }
+    
 
 }

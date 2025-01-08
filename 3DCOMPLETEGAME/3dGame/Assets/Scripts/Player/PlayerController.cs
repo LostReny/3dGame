@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour//IDamagable
     [Header("Run")]
     public float runSpeed = 1.5f;
     public KeyCode runKeyCode = KeyCode.LeftShift;
-    private float originalRunSpeed;
 
     private Coroutine speedChangeCoroutine;
 
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour//IDamagable
     private void Awake()
     {
         OnValidate();
-        originalRunSpeed = runSpeed;
         healthBase.OnDamage += Damage;
         healthBase.OnKill += OnKill;
     }
@@ -114,25 +112,23 @@ public class PlayerController : MonoBehaviour//IDamagable
     }
     #endregion
 
-        public void ChangeRunSpeedTemporarily(float newRunSpeed, float duration)
+#region VELOCIDADE AO PEGAR ITEM
+        public void ChangeRunSpeedTemporarily(float speed, float duration)
         {
-            if (speedChangeCoroutine != null)
-            {
-                StopCoroutine(speedChangeCoroutine);
-                runSpeed = originalRunSpeed; 
-            }
-
-            speedChangeCoroutine = StartCoroutine(ChangeRunSpeedCoroutine(newRunSpeed, duration));
+            StartCoroutine(ChangeRunSpeedCoroutine(speed,duration));
         }
 
-        private IEnumerator ChangeRunSpeedCoroutine(float newRunSpeed, float duration)
+        IEnumerator ChangeRunSpeedCoroutine(float newSpeed, float duration)
         {
-            runSpeed = newRunSpeed;
+            float originalSpeed = speed;
+            speed = newSpeed;          
             yield return new WaitForSeconds(duration);
-            runSpeed = originalRunSpeed;
-            speedChangeCoroutine = null;
+            speed = originalSpeed;       
         }
 
+#endregion
+
+#region TEXTURE
         public void ChangeTexture(ClothSetup setup, float duration)
         {
             StartCoroutine(ChangeTextureCoroutine(setup, duration));
@@ -144,6 +140,8 @@ public class PlayerController : MonoBehaviour//IDamagable
             yield return new WaitForSeconds(duration);
             _clothChanger.ResetTexture();
         }
+
+#endregion
 
 
     #region jump
