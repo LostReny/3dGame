@@ -42,7 +42,7 @@ public class DestructableItemBase : MonoBehaviour
 
     private void OnDamage(HealthBase h)
     {
-        Debug.Log("On Damage");
+        //Debug.Log("On Damage");
         transform.DOShakeScale(shakeDuration, Vector3.up / 4, shakeForce);
         DropCoins();
     }

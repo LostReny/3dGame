@@ -131,5 +131,5 @@ MonoBehaviour:
   speed: 50
   gunUpdaters:
   - {fileID: 0}
-  maxShoot: 5
+  _maxShoot: 5
   timeToRecharge: 1

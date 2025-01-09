@@ -39,7 +39,6 @@ public class PlayerHabilityBase : MonoBehaviour
 
     private void OnDestroy()
     {
-
         UnregisterListeners();
     }
 

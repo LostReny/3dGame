@@ -146,7 +146,7 @@ MonoBehaviour:
   timeToHide: 0.3
   graphicItem: {fileID: 745515398217373354}
   _collider: {fileID: 745515399557523361}
-  gunObject: {fileID: 0}
-  newMaxShoot: 10
-  newTBwShoot: 0.1
-  gunLimit: {fileID: 0}
+  gunPrefab: {fileID: 8226089464394912749, guid: 655610a3057d09f4dbed674341763d47, type: 3}
+  gunObject: {fileID: 8226089464394912749, guid: 655610a3057d09f4dbed674341763d47, type: 3}
+  _maxShoot: 10
+  gunLimit: {fileID: 7466008662160875438, guid: 655610a3057d09f4dbed674341763d47, type: 3}
