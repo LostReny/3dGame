@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using Cloth;
+//using Cloth;
 
 public class GunBase : MonoBehaviour
 {
