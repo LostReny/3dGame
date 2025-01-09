@@ -29,7 +29,7 @@ public class HealthBase : MonoBehaviour, IDamagable
         }
     }
 
-    public float damageMultipliyer = 1;
+    public float damageMultipliyer = 1f;
 
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
@@ -98,14 +98,13 @@ public class HealthBase : MonoBehaviour, IDamagable
 
     #region MENOS DANO
        
-        public void ChangeDamageMultiplay(float damage, float duration)
+        public void ChangeDamageMultiplay(float damageMultipliyer, float duration)
         {
             StartCoroutine(ChangeDamageCoroutine(damageMultipliyer, duration));
         }
 
         public IEnumerator ChangeDamageCoroutine(float damageMultipliyer, float duration)
         {
-
             this.damageMultipliyer = damageMultipliyer;
             yield return new WaitForSeconds(duration);    
             this.damageMultipliyer = 1;

@@ -6,7 +6,7 @@ namespace Cloth
 {
     public class ClothItemStrong : ClothItemBase
     {
-        public float damageMultipliyer = 2f;
+        public float damageMultipliyer = 0f;
 
         public override void Collect()
         {

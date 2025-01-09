@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour//IDamagable
     }
     #endregion
 
-#region VELOCIDADE AO PEGAR ITEM
+    #region VELOCIDADE AO PEGAR ITEM
         public void ChangeRunSpeedTemporarily(float speed, float duration)
         {
             StartCoroutine(ChangeRunSpeedCoroutine(speed,duration));
@@ -126,9 +126,9 @@ public class PlayerController : MonoBehaviour//IDamagable
             speed = originalSpeed;       
         }
 
-#endregion
+    #endregion
 
-#region TEXTURE
+    #region TEXTURE
         public void ChangeTexture(ClothSetup setup, float duration)
         {
             StartCoroutine(ChangeTextureCoroutine(setup, duration));
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour//IDamagable
             _clothChanger.ResetTexture();
         }
 
-#endregion
+    #endregion
 
 
     #region jump

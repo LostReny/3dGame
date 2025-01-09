@@ -12,6 +12,7 @@ public class GunBase : MonoBehaviour
     public float speed = 50f;
 
     private Coroutine _currentCoroutine;
+
     
     protected virtual IEnumerator StartShoot() {
         while(true)
@@ -28,7 +29,7 @@ public class GunBase : MonoBehaviour
         projectile.speed = speed;
     }
 
-    public void StartShooting()
+    public virtual void StartShooting()
     {
         CancelShooting();
        // Debug.Log("Starting Shooting...");
@@ -41,11 +42,11 @@ public class GunBase : MonoBehaviour
         if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
     }
 
-    #region VELOCIDADE AO PEGAR ITEM
+    /*#region VELOCIDADE AO PEGAR ITEM
        
-        public void ChangeShootSpeed(float newTimeBetweenShoot, float duration)
+        public void ChangeShootSpeed(float timeBetweenShoot, float duration)
         {
-            StartCoroutine(ChangeShootCoroutine(newTimeBetweenShoot, duration));
+            StartCoroutine(ChangeShootCoroutine(timeBetweenShoot, duration));
         }
 
         IEnumerator ChangeShootCoroutine(float newTimeBetweenShoot, float duration)
@@ -57,8 +58,8 @@ public class GunBase : MonoBehaviour
 
             timeBetweenShoot = originalTimeBetweenShoot;
         }
+    */
 
-
-        #endregion
+        //#endregion
 
 }

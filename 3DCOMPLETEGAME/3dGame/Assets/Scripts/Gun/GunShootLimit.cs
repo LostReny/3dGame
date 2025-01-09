@@ -17,9 +17,7 @@ public class GunShootLimit : GunBase
         set => _maxShoot = value;
     }
 
-
     public float timeToRecharge = 1f;
-
 
     private float _currentShoots;
     private bool recharging = false;
@@ -29,6 +27,7 @@ public class GunShootLimit : GunBase
     {
         GetAllUIs();
     }
+
 
     protected override IEnumerator StartShoot()
     {
@@ -44,7 +43,6 @@ public class GunShootLimit : GunBase
                 UpdateUI();
                 yield return new WaitForSeconds(timeBetweenShoot);
             }
-
         }
     }
 
@@ -56,6 +54,7 @@ public class GunShootLimit : GunBase
             StartRecharge();
         }
     }
+
 
     private void StartRecharge()
     {
@@ -101,15 +100,16 @@ public class GunShootLimit : GunBase
 
     #region VELOCIDADE SHOOT LIMIT
        
-        public void ChangeShootLimit(float newLimitShoot, float duration)
+        public void ChangeShootLimit(float _maxShoot, float duration)
         {
-            StartCoroutine(ChangeShootLimitCoroutine(newLimitShoot, duration));
+            StartCoroutine(ChangeShootLimitCoroutine(_maxShoot, duration));
         }
         public IEnumerator DisableRechargingForDuration(float duration)
         {
+            bool originalState = recharging;
             recharging = false;
             yield return new WaitForSeconds(duration);
-            //recharging = true;
+            recharging = originalState;
         }
 
         public IEnumerator ChangeShootLimitCoroutine(float newLimitShoot, float duration)
@@ -118,9 +118,11 @@ public class GunShootLimit : GunBase
 
             float originalLimitShoot = _maxShoot;
             _maxShoot = newLimitShoot;
-            yield return new WaitForSeconds(duration);    
+            _currentShoots = Mathf.Min(_currentShoots, _maxShoot); // Ajusta o estado atual.
+
+            yield return new WaitForSeconds(duration);
+
             _maxShoot = originalLimitShoot;
-            recharging = true;
         }
 
 

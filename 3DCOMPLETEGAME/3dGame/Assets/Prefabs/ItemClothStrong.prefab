@@ -59,13 +59,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothType: 2
-  duration: 2
+  duration: 5
   compareTag: Player
   playerController: {fileID: 0}
   timeToHide: 0.3
   graphicItem: {fileID: 4863560227682857727}
   _collider: {fileID: 4863560226923285494}
-  targetDefense: 2
+  damageMultipliyer: 0
 --- !u!1 &4863560227682857727
 GameObject:
   m_ObjectHideFlags: 0

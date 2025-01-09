@@ -10,21 +10,21 @@ namespace Cloth
     {
         public GameObject gunObject;
 
-        public float newMaxShoot = 10f;
-        public float newTBwShoot = 0.01f;
+        public float _maxShoot = 10f;
+        //public float newTBwShoot = 0.01f;
 
         public GunShootLimit gunLimit;
 
         public override void Collect()
         {
             base.Collect();
-            gunLimit.ChangeShootLimit(newMaxShoot, duration);
-            gunLimit.ChangeShootSpeed(newTBwShoot, duration);
+            gunLimit.ChangeShootLimit(_maxShoot, duration);
+            //gunLimit.ChangeShootSpeed(newTBwShoot, duration);
 
             Invoke("DestroyGO", 3f);
         }
 
-        private void Start()
+        public override void Start()
         {
             if (gunObject != null)
             {

@@ -27,16 +27,16 @@ namespace Cloth
             }
         }
 
-         public void Start()
+         public virtual void Start()
         {
             if (playerController == null)
-        {
-            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-            if (playerObject != null)
             {
-                playerController = playerObject.GetComponent<PlayerController>();
+                GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+                if (playerObject != null)
+                {
+                    playerController = playerObject.GetComponent<PlayerController>();
+                }
             }
-        }
             _collider = GetComponent<Collider>();
             _collider.enabled = true;
         }
