@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour//IDamagable
     [Space]
     [SerializeField] private ClothChanger _clothChanger;
 
-    private ClothItemBase clothItem;
 
     private void OnValidate()
     {
@@ -220,7 +219,5 @@ public class PlayerController : MonoBehaviour//IDamagable
         }
     }
 
-
     #endregion
-
 }

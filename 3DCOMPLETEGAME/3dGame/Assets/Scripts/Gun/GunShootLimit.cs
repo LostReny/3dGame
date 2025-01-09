@@ -63,13 +63,12 @@ public class GunShootLimit : GunBase
 
         _maxShoot = newMaxShoot;
 
-        // Pode adicionar um tempo de duração para ajustar o comportamento do recarregamento, se necessário
         if (recharging)
         {
-            StopCoroutine(RechargeCoroutine()); // Se já estiver recarregando, pare a coroutine antiga
+            StopCoroutine(RechargeCoroutine()); 
         }
 
-        StartCoroutine(RechargeCoroutine()); // Reinicia a recarga, se necessário
+        StartCoroutine(RechargeCoroutine()); 
     }
 
 

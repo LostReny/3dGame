@@ -16,13 +16,8 @@ namespace Cloth
         {
              base.Collect();
 
-            // Chama o método para mudar o limite de disparos dinamicamente
-            if (gunObject != null && gunObject.GetComponent<GunShootLimit>() != null)
-            {
-                //gunLimit = gunObject.GetComponent<GunShootLimit>();
-                // Altera o limite de disparos.
                 gunLimit.ChangeShootLimit(_maxShoot, duration);
-            }
+        
 
             Invoke("DestroyGO", 3f);
         }

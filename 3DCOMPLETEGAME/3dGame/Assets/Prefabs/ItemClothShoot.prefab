@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothType: 1
-  duration: 5
+  duration: 10
   compareTag: Player
   playerController: {fileID: 0}
   timeToHide: 0.3
