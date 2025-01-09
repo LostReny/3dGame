@@ -8,17 +8,11 @@ public class GunShootLimit : GunBase
 
     [SerializeField] 
     private float _maxShoot = 5f; // Valor inicial do limite de disparos
-
-    public float MaxShoot
-    {
-        get => _maxShoot;
-        set
+    public float maxShoot
         {
-            _maxShoot = value;
-            Debug.Log($"MaxShoot updated to: {_maxShoot}");
-            CheckRecharge(); // Verifica se o limite foi atingido após a mudança
+            get => _maxShoot;
+            set => _maxShoot = value;
         }
-    }
 
     public float timeToRecharge = 1f;
 
@@ -28,13 +22,6 @@ public class GunShootLimit : GunBase
     private void Awake()
     {
         GetAllUIs();
-    }
-
-    // O método OnValidate será chamado sempre que o valor for alterado no Inspector
-    private void OnValidate()
-    {
-        Debug.Log("OnValidate called. MaxShoot is: " + _maxShoot);
-        MaxShoot = _maxShoot;  // Certifica-se de que o valor em MaxShoot será atualizado no editor
     }
 
     protected override IEnumerator StartShoot()
@@ -69,6 +56,23 @@ public class GunShootLimit : GunBase
         StartCoroutine(RechargeCoroutine());
     }
 
+
+    public void ChangeShootLimit(float newMaxShoot, float duration)
+    {
+        Debug.Log($"Changing MaxShoot to: {newMaxShoot} for {duration} seconds");
+
+        _maxShoot = newMaxShoot;
+
+        // Pode adicionar um tempo de duração para ajustar o comportamento do recarregamento, se necessário
+        if (recharging)
+        {
+            StopCoroutine(RechargeCoroutine()); // Se já estiver recarregando, pare a coroutine antiga
+        }
+
+        StartCoroutine(RechargeCoroutine()); // Reinicia a recarga, se necessário
+    }
+
+
     IEnumerator RechargeCoroutine()
     {
         float time = 0;
@@ -101,11 +105,13 @@ public class GunShootLimit : GunBase
         }
     }
 
-    #region VELOCIDADE SHOOT LIMIT
-    public void ChangeShootLimit(float newMaxShoot, float duration)
-    {
-        MaxShoot = newMaxShoot;  // Atualiza o valor de _maxShoot de maneira dinâmica
-        StartCoroutine(ChangeShootLimitCoroutine(newMaxShoot, duration));
+    //#region VELOCIDADE SHOOT LIMIT
+    /*public void ChangeShootLimit(float _maxShoot, float duration)
+    {  
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(ChangeShootLimitCoroutine(_maxShoot, duration));
+        }
     }
 
     public IEnumerator DisableRechargingForDuration(float duration)
@@ -121,12 +127,12 @@ public class GunShootLimit : GunBase
         StartCoroutine(DisableRechargingForDuration(duration));
 
         float originalLimitShoot = _maxShoot;
-        MaxShoot = newLimitShoot;
+        _maxShoot = newLimitShoot;
         _currentShoots = Mathf.Min(_currentShoots, _maxShoot); // Ajusta o estado atual.
 
         yield return new WaitForSeconds(duration);
 
-        MaxShoot = originalLimitShoot;  // Restaura o valor original após o tempo
+        _maxShoot = originalLimitShoot;  // Restaura o valor original após o tempo
     }
-    #endregion
+    #endregion*/
 }

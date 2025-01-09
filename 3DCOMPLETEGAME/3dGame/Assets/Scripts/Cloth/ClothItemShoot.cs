@@ -14,35 +14,30 @@ namespace Cloth
 
         public override void Collect()
         {
-            base.Collect();
+             base.Collect();
 
             // Chama o método para mudar o limite de disparos dinamicamente
-            if (gunLimit != null)
+            if (gunObject != null && gunObject.GetComponent<GunShootLimit>() != null)
             {
+                //gunLimit = gunObject.GetComponent<GunShootLimit>();
+                // Altera o limite de disparos.
                 gunLimit.ChangeShootLimit(_maxShoot, duration);
-                Debug.Log($"MaxShoot updated to {_maxShoot} in Collect.");
             }
 
             Invoke("DestroyGO", 3f);
         }
-
         public override void Start()
         {
-            if (gunPrefab != null)
-            {
                 gunObject = Instantiate(gunPrefab, transform.position, transform.rotation);
-                gunLimit = gunObject.GetComponent<GunShootLimit>();
 
-                if (gunLimit == null)
-                {
-                    Debug.LogError("GunShootLimit component not found in the instantiated gun.");
-                }
-            }
-            else
-            {
-                Debug.LogError("Gun prefab is null. Ensure gunPrefab is assigned in the Inspector.");
-            }
+                // Ativa o gunObject se não estiver ativo
+                gunObject.SetActive(true); // Garantir que o gunObject esteja ativo
+
+                gunLimit = gunObject.GetComponent<GunShootLimit>();
+                
         }
+           
+
 
         public void DestroyGO()
         {
