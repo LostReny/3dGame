@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cloth;
+using Boss;
 
 public class PlayerController : MonoBehaviour//IDamagable
 {
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour//IDamagable
     [Header("Health")]
     public HealthBase healthBase;
     private bool _alive = true;
+    private bool _isJumping = false;
 
     [Space]
     [SerializeField] private ClothChanger _clothChanger;
@@ -150,10 +152,22 @@ public class PlayerController : MonoBehaviour//IDamagable
     {
         if (characterController.isGrounded)
         {
+            if(_isJumping)
+            {
+                _isJumping = false;
+                animator.SetTrigger("Landing");
+            }
+
             vSpeed = 0;
             if (Input.GetKeyDown(jumpKeyCode))
             {
                 vSpeed = jumpSpeed;
+
+                if(!_isJumping)
+                {
+                    _isJumping = true;
+                    animator.SetTrigger("Jump");
+                }
             }
         }
     }
