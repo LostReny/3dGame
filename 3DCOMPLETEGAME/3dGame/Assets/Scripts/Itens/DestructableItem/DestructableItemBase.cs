@@ -20,6 +20,9 @@ public class DestructableItemBase : MonoBehaviour
     public int LimitOfDrop;
     public bool canDrop = true;
 
+    [Header("VFX")]
+    public ParticleSystem _damageVFX;
+
     private void OnValidate()
     {
         if(healthBase == null) healthBase = GetComponent<HealthBase>();
@@ -45,6 +48,7 @@ public class DestructableItemBase : MonoBehaviour
         //Debug.Log("On Damage");
         transform.DOShakeScale(shakeDuration, Vector3.up / 4, shakeForce);
         DropCoins();
+        if(_damageVFX != null) _damageVFX.Play();
     }
 
     #region COIN

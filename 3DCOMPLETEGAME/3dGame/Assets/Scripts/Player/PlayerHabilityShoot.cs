@@ -18,6 +18,9 @@ public class PlayerHabilityShoot : PlayerHabilityBase
     private GunBase _currentGun;
 
     private bool _isShooting;
+    
+    [Header("VFX")]
+    public ParticleSystem shootingVFX;
 
     protected override void Init()
     {
@@ -63,6 +66,11 @@ public class PlayerHabilityShoot : PlayerHabilityBase
         if (_isShooting || _currentGun == null) return;
         _isShooting = true;
         _currentGun.StartShooting();
+
+        if (shootingVFX != null && !shootingVFX.isPlaying)
+        {
+            shootingVFX.Play();
+        }
     }
 
     private void CancelShoot()
@@ -70,6 +78,11 @@ public class PlayerHabilityShoot : PlayerHabilityBase
         if (!_isShooting || _currentGun == null) return;
         _isShooting = false;
         _currentGun.CancelShooting();
+
+        if (shootingVFX != null && shootingVFX.isPlaying)
+        {
+            shootingVFX.Stop();
+        }
     }
 
 

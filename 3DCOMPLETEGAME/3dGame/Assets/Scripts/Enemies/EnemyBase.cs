@@ -30,6 +30,7 @@ namespace Enemy
         private bool isActive = false; // Estado de ativa��o do inimigo
         private PlayerController _playerController;
 
+
         private void Awake()
         {
             if (!useTrigger) Init(); // Ativa automaticamente se useTrigger for falso
