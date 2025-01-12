@@ -10,7 +10,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
 
     // minha instancia é igual ao script
-    private void Awake() {
+    protected virtual void Awake() {
         if(Instance == null)
             Instance = this as T;
         else
