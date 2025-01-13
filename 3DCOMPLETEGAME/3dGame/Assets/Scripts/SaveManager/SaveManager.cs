@@ -50,6 +50,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup.coins = Itens.ItemCollectManager.Instance.GetItemByType(Itens.ItemType.COIN).soInt.value;
         _saveSetup.lifePack = Itens.ItemCollectManager.Instance.GetItemByType(Itens.ItemType.LIFE_PACK).soInt.value;
+        SaveCurrentLife();
         Save();
     }
 
@@ -64,6 +65,44 @@ public class SaveManager : Singleton<SaveManager>
         SaveItems();
         Save();
     }
+
+    public void SaveCheckpoint(int checkpoint)
+    {
+        _saveSetup.checkPoint = CheckPointManager.Instance.SaveCheckPoint(checkpoint);
+        SaveItems();
+        Save();
+    }
+
+    public void SaveCurrentLife()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            HealthBase playerHealthBase = player.GetComponent<HealthBase>();
+            if (playerHealthBase != null)
+            {
+                _saveSetup.currentLife = playerHealthBase.currentLife;
+                Save(); // Salva a vida no arquivo
+            }
+        }
+    }
+
+
+        public void LoadCurrentLife()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            HealthBase playerHealthBase = player.GetComponent<HealthBase>();
+            if (playerHealthBase != null && _saveSetup.currentLife > 0)
+            {
+                playerHealthBase.currentLife = _saveSetup.currentLife;
+                playerHealthBase.UpdateUi(); // Atualiza a UI do jogador após carregar a vida
+            }
+        }
+    }
+
+
     #endregion
 
     private void SaveFile(string json)
@@ -98,7 +137,9 @@ public class SaveSetup
 {
     public int lastLevel;
     public string playerName;
-
     public float coins;
     public float lifePack;
+    public int checkPoint;
+
+    public float currentLife;
 }

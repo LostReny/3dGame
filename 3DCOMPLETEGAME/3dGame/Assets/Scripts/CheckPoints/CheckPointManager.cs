@@ -14,12 +14,14 @@ public class CheckPointManager : Singleton<CheckPointManager>
         return lastCheckPoint > 0;
     }
 
-    public void SaveCheckPoint(int i)
+    public int SaveCheckPoint(int i)
     {
         if(i > lastCheckPoint)
         {
             lastCheckPoint  = i;
         }
+
+        return lastCheckPoint;
     }
 
     public Vector3 GetPositionFromLastCheckPoint()

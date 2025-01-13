@@ -43,6 +43,7 @@ public class HealthBase : MonoBehaviour, IDamagable
     public void Init()
     {
         ResetLife();
+        SaveManager.Instance.LoadCurrentLife();
     }
 
     public void ResetLife()
