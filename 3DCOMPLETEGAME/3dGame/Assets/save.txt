@@ -1,1 +1,1 @@
-{"lastLevel":1,"playerName":""}
+{"lastLevel":0,"playerName":""}
