@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 1755845172}
   - component: {fileID: 1755845171}
   - component: {fileID: 1755845174}
+  - component: {fileID: 1755845175}
   m_Layer: 5
   m_Name: Start_Button
   m_TagString: Untagged
@@ -1373,6 +1374,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a534035493ade4abc2e7417b674765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1755845175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755845169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555584fc446938844a159b04548c8393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiTextName: {fileID: 1637267730}
 --- !u!1 &1934347804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1743,18 @@ PrefabInstance:
     - target: {fileID: 5011302281150005321, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011302281150005322, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
+      propertyPath: _saveSetup.coins
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011302281150005322, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
+      propertyPath: _saveSetup.lifePack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011302281150005322, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
+      propertyPath: _saveSetup.lastLevel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}

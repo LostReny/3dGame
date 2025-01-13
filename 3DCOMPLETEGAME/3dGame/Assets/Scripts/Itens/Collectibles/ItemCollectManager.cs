@@ -34,6 +34,13 @@ namespace Itens
             Reset();
         }
 
+        public void LoadItemsFromSave()
+        {
+            AddByType(ItemType.COIN,(int) SaveManager.Instance.Setup.coins);
+            AddByType(ItemType.COIN,(int) SaveManager.Instance.Setup.coins);
+
+        }
+
         private void Reset()
         {
             foreach(var i in itensSetups)
