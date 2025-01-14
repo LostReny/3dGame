@@ -28,25 +28,42 @@ namespace Itens
 
         }
 
-
         private void Start()
         {
-            Reset();
+            /*if (SaveManager.Instance.loadItens = true)
+            {
+                LoadItemsFromSave();
+            }
+            else
+            {
+                Reset();
+            }*/
+
+            if(SaveManager.Instance.loadItens = false)
+            {
+                Reset();
+            }
+                   
         }
 
         public void LoadItemsFromSave()
         {
+            Reset();
             AddByType(ItemType.COIN,(int) SaveManager.Instance.Setup.coins);
-            AddByType(ItemType.COIN,(int) SaveManager.Instance.Setup.coins);
-
+            AddByType(ItemType.LIFE_PACK,(int) SaveManager.Instance.Setup.lifePack);
         }
 
-        private void Reset()
+        public void Reset()
         {
             foreach(var i in itensSetups)
             {
                 i.soInt.value = 0;
             }
+            SaveManager.Instance.Setup.coins = 0;
+            SaveManager.Instance.Setup.lifePack = 0;
+            
+            SaveManager.Instance.Save();
+            
         }
 
         public ItensSetup GetItemByType(ItemType itemType, int amount = 1)

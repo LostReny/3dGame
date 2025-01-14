@@ -16,7 +16,7 @@ namespace Itens
         public TextMeshProUGUI uiValue;
 
         public void Load(ItensSetup setup)
-        {
+        {  
             _curSetup = setup;
             UpdateUi();
         }
@@ -24,7 +24,7 @@ namespace Itens
         public void UpdateUi()
         {
             uiIcon.sprite = _curSetup.icon;
-            //SaveManager.Instance.SaveItems();
+            uiValue.text = _curSetup.soInt.value.ToString();
         }
 
         public void Update()

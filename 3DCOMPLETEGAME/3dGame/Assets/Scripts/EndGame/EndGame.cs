@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using Itens;
+using LostWordls.StateMachine;
 
 public class EndGame : MonoBehaviour
 {
@@ -50,14 +52,12 @@ public class EndGame : MonoBehaviour
             i.SetActive(true);
             i.transform.DOScale(0, .2f).SetEase(Ease.OutBack).From();
         }
+            
             SaveManager.Instance.SaveLastLevel(_currentLevel);
-            ResetCheckpoints();
+            //SaveManager.Instance.CreateNewSave();
+            //ResetCheckpoints();
+            //ResetAllItens();
+
     }
 
-    private void ResetCheckpoints()
-    {
-        CheckPointManager.Instance.ResetCheckpoints();
-        SaveManager.Instance.Setup.checkPoint = 0;
-        SaveManager.Instance.Save();
-    }
 }

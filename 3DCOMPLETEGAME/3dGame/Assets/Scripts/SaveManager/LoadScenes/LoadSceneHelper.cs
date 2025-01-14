@@ -9,4 +9,11 @@ public class LoadSceneHelper : MonoBehaviour
     {
         SceneManager.LoadScene(level);
     }
+
+     public void ResetLevel(int level)
+    {
+        PlayerPrefs.DeleteAll(); 
+        SaveManager.Instance.CreateNewSave();
+        SceneManager.LoadScene(level);
+    }
 }

@@ -30,14 +30,21 @@ public class SaveManager : Singleton<SaveManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    private void CreateNewSave()
+    public void CreateNewSave()
     {
         _saveSetup = new SaveSetup();
         loadLife = false;
-        _saveSetup.currentLife = 10;
+        loadItens = false;
 
-        // new level - criar novo estado
-    }
+        // Definindo valores padrão para o novo save
+        _saveSetup.currentLife = 10;
+        _saveSetup.coins = 0;
+        _saveSetup.lifePack = 0;
+
+        Save();
+
+    }   
+    
 
     private void Start()
     {
@@ -56,20 +63,23 @@ public class SaveManager : Singleton<SaveManager>
 
     public void SaveItems()
     {
-        _saveSetup.coins = Itens.ItemCollectManager.Instance.GetItemByType(Itens.ItemType.COIN).soInt.value;
-        _saveSetup.lifePack = Itens.ItemCollectManager.Instance.GetItemByType(Itens.ItemType.LIFE_PACK).soInt.value;
+        if (loadItens == true)
+        {
+            // Salva os itens coletados no momento atual
+            _saveSetup.coins = Itens.ItemCollectManager.Instance.GetItemByType(Itens.ItemType.COIN).soInt.value;
+            _saveSetup.lifePack = Itens.ItemCollectManager.Instance.GetItemByType(Itens.ItemType.LIFE_PACK).soInt.value;
+        }
+        if (loadItens == false)
+        {
+            // Zera os itens se o estado não permitir carregar os itens anteriores
+            _saveSetup.coins = 0;
+            _saveSetup.lifePack = 0;
+            Itens.ItemCollectManager.Instance.Reset();
+        }
+
         SaveCurrentLife();
         Save();
     }
-    
-   /* public void UpdateUiItens()
-    {
-        Itens.ItemLayout itemLayout = FindObjectOfType<Itens.ItemLayout>();
-        if (itemLayout != null)
-        {
-            itemLayout.UpdateUi();
-        }
-    }*/
 
     public void SaveName(string name)
     {
@@ -85,6 +95,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public void SaveCheckpoint(int checkpoint)
     {
+        loadItens = true;
         _saveSetup.checkPoint = CheckPointManager.Instance.SaveCheckPoint(checkpoint);
         SaveItems();
         Save();
@@ -144,8 +155,7 @@ public class SaveManager : Singleton<SaveManager>
             CreateNewSave();
             Save();
         }  
-
-         FileLoaded?.Invoke(_saveSetup);
+        FileLoaded?.Invoke(_saveSetup);
     }
 }
 
