@@ -29,4 +29,14 @@ public class CheckPointManager : Singleton<CheckPointManager>
         var checkPoint = checkPoints.Find( i => i.Key == lastCheckPoint);
         return checkPoint.transform.position;
     }
+
+    public void ResetCheckpoints()
+    {
+        lastCheckPoint = 0;
+
+        foreach (var checkPoint in checkPoints)
+        {
+            checkPoint.TurnItOff();
+        }
+    }
 }

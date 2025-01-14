@@ -45,7 +45,7 @@ public class CheckPointBase : MonoBehaviour
    }
 
     [NaughtyAttributes.Button]
-   private void TurnItOff()
+   public void TurnItOff()
    {
         meshRenderer.material.SetColor("_EmissionColor", Color.black);
    }

@@ -42,13 +42,21 @@ public class HealthBase : MonoBehaviour, IDamagable
 
     public void Init()
     {
-        ResetLife();
-        SaveManager.Instance.LoadCurrentLife();
+        if(SaveManager.Instance.loadLife = true)
+        {
+            SaveManager.Instance.LoadCurrentLife();
+        }
+        
+        if(SaveManager.Instance.loadLife = false)
+        {
+            ResetLife();
+        }
     }
 
     public void ResetLife()
     {
         _currentLife = startLife;
+        
     }
 
     protected virtual void Kill()

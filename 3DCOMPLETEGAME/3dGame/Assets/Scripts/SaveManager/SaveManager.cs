@@ -12,6 +12,10 @@ public class SaveManager : Singleton<SaveManager>
 
     public Action<SaveSetup> FileLoaded = delegate { };
 
+    public bool loadLife = false;
+
+    public bool loadItens = false;
+
     public SaveSetup Setup
     {
         get {return _saveSetup;}
@@ -29,6 +33,10 @@ public class SaveManager : Singleton<SaveManager>
     private void CreateNewSave()
     {
         _saveSetup = new SaveSetup();
+        loadLife = false;
+        _saveSetup.currentLife = 10;
+
+        // new level - criar novo estado
     }
 
     private void Start()
@@ -38,7 +46,7 @@ public class SaveManager : Singleton<SaveManager>
 
     #region SAVE
     [NaughtyAttributes.Button]
-    private void Save()
+    public void Save()
     {
         //colocando em Json
         string setupToJson = JsonUtility.ToJson(_saveSetup);
@@ -53,6 +61,15 @@ public class SaveManager : Singleton<SaveManager>
         SaveCurrentLife();
         Save();
     }
+    
+   /* public void UpdateUiItens()
+    {
+        Itens.ItemLayout itemLayout = FindObjectOfType<Itens.ItemLayout>();
+        if (itemLayout != null)
+        {
+            itemLayout.UpdateUi();
+        }
+    }*/
 
     public void SaveName(string name)
     {
@@ -82,14 +99,15 @@ public class SaveManager : Singleton<SaveManager>
             if (playerHealthBase != null)
             {
                 _saveSetup.currentLife = playerHealthBase.currentLife;
-                Save(); // Salva a vida no arquivo
+                Save();
             }
         }
     }
 
-
-        public void LoadCurrentLife()
+    public void LoadCurrentLife()
     {
+        loadLife = true;
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -97,11 +115,10 @@ public class SaveManager : Singleton<SaveManager>
             if (playerHealthBase != null && _saveSetup.currentLife > 0)
             {
                 playerHealthBase.currentLife = _saveSetup.currentLife;
-                playerHealthBase.UpdateUi(); // Atualiza a UI do jogador após carregar a vida
+                playerHealthBase.UpdateUi();
             }
         }
     }
-
 
     #endregion
 

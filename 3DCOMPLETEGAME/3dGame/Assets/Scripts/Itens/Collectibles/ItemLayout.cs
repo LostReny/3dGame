@@ -15,18 +15,19 @@ namespace Itens
         public Image uiIcon;
         public TextMeshProUGUI uiValue;
 
-         public void Load(ItensSetup setup)
+        public void Load(ItensSetup setup)
         {
             _curSetup = setup;
             UpdateUi();
         }
 
-        private void UpdateUi()
+        public void UpdateUi()
         {
             uiIcon.sprite = _curSetup.icon;
+            //SaveManager.Instance.SaveItems();
         }
 
-        private void Update()
+        public void Update()
         {
             uiValue.text = _curSetup.soInt.value.ToString();
         }
