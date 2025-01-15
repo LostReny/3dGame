@@ -22,6 +22,9 @@ public class PlayerHabilityShoot : PlayerHabilityBase
     [Header("VFX")]
     public ParticleSystem shootingVFX;
 
+    [Header("SFX")]
+    public SFXType sfxType;
+
     protected override void Init()
     {
         base.Init();
@@ -71,6 +74,7 @@ public class PlayerHabilityShoot : PlayerHabilityBase
         {
             shootingVFX.Play();
         }
+        PlaySFX();
     }
 
     private void CancelShoot()
@@ -83,6 +87,11 @@ public class PlayerHabilityShoot : PlayerHabilityBase
         {
             shootingVFX.Stop();
         }
+    }
+
+    private void PlaySFX()
+    {
+            SFXPool.Instance.Play(sfxType);
     }
 
 

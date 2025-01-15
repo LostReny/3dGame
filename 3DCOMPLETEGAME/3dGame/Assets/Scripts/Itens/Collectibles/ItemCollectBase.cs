@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Itens { 
     public class ItemCollectBase : MonoBehaviour
     {
+        public SFXType sfxType;
         public ItemType itemType;
 
         public string compareTag = "Player";
@@ -22,6 +23,11 @@ namespace Itens {
         
         }
 
+        private void PlaySFX()
+        {
+            SFXPool.Instance.Play(sfxType);
+        }
+
         public void Start()
         {
             _collider = GetComponent<Collider>();
@@ -30,6 +36,8 @@ namespace Itens {
 
         protected virtual void Collect()
         {
+
+            PlaySFX();
             //Destroy(gameObject, 0.5f);
             if (_collider != null) _collider.enabled = false;
 

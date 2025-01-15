@@ -2025,17 +2025,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5011302281150005322, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
-      propertyPath: _saveSetup.coins
-      value: 53
-      objectReference: {fileID: 0}
-    - target: {fileID: 5011302281150005322, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
-      propertyPath: _saveSetup.lifePack
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5011302281150005322, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}
-      propertyPath: _saveSetup.lastLevel
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02b560580accfd4e9d228a5a4a47a9e, type: 3}

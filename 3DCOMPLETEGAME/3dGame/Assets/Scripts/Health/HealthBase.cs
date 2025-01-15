@@ -42,7 +42,7 @@ public class HealthBase : MonoBehaviour, IDamagable
 
     public void Init()
     {
-        if(SaveManager.Instance.loadLife = true)
+       if(SaveManager.Instance.loadLife = true)
         {
             SaveManager.Instance.LoadCurrentLife();
         }

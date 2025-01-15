@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee43da0df9e7aaf479d8357a926645b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 2
   itemType: 0
   compareTag: Player
   timeToHide: 0.1

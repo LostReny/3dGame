@@ -45,6 +45,7 @@ public class MusicSetup
 
 public enum SFXType
 {
+    NONE,
     AUDIO_TYPE_01,
     AUDIO_TYPE_02,
     AUDIO_TYPE_03
