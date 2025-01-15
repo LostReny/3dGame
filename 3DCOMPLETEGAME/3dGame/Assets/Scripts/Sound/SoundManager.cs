@@ -1,11 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LostWordls.Singleton;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
     public List<MusicSetup> musicSetups;
     public List<SFXSetup> sFXSetups;
+
+    public AudioSource musicSource;
+
+
+    public void PlayMusicByType(MusicType musicType)
+    {
+        var music = GetMusicByType(musicType);
+        musicSource.clip = music.audioClip;
+        musicSource.Play();
+    }
+
+    public MusicSetup GetMusicByType(MusicType musicType)
+    {
+        return musicSetups.Find(i => i.musicType == musicType);
+    }
+
+    public SFXSetup GetSFXByType(SFXType sfxType)
+    {
+        return sFXSetups.Find(i => i.sfxType == sfxType);
+    }
 }
 
 public enum MusicType

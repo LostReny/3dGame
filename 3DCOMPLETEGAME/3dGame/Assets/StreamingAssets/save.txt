@@ -1,1 +1,1 @@
-{"lastLevel":0,"playerName":"","coins":6.0,"lifePack":2.0,"checkPoint":1,"currentLife":7.0}
+{"lastLevel":0,"playerName":"","coins":0.0,"lifePack":0.0,"checkPoint":0,"currentLife":10.0}
