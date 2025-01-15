@@ -56,7 +56,6 @@ public class HealthBase : MonoBehaviour, IDamagable
     public void ResetLife()
     {
         _currentLife = startLife;
-        
     }
 
     protected virtual void Kill()
